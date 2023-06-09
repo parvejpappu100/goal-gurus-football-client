@@ -4,7 +4,7 @@ const About = () => {
     return (
         <div className='lg:container mx-auto my-32'>
             <h3 className='text-3xl flex justify-center'>Total Europe Football <br /> Immersion.</h3>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10 px-4 lg:px-0'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10 px-4 lg:px-10'>
                 {/* TODO: change lorem details */}
                 <div>
                     <img  src="https://i.ibb.co/mRKCvwB/Ab.png" alt="" />
