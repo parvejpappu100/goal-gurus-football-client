@@ -6,17 +6,38 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
+const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 const SingUp = () => {
 
     const [showPassword, setShowPassword] = useState(false);
+    const [image , setImage] = useState("");
+    console.log(image)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [passError, setPassError] = useState("");
 
+    const img_hosting_Url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
+
     const onSubmit = data => {
+        const formData = new FormData();
+        formData.append("image", data.image[0]);
+
+        fetch(img_hosting_Url, {
+            method: "POST",
+            body: formData
+        })
+        .then(res => res.json())
+        .then(imgResponse => {
+            if(imgResponse.success){
+                const imgURL = imgResponse.data.display_url;
+                setImage(imgURL);
+            }
+        })
+
         if (data.password === data.confirmPassword) {
             setPassError("")
-            console.log(data.email, data.password, data.name, data.confirmPassword)
+            console.log(data)
+            
         }
         else {
             setPassError("Password dose not match . Please provide same password");
@@ -82,7 +103,7 @@ const SingUp = () => {
                                     <label className="label">
                                         <span className="label-text text-xl font-medium">Your Photo</span>
                                     </label>
-                                    <input type="file" className="file-input file-input-bordered w-full" />
+                                    <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full" />
                                 </div>
 
                                 <input type="submit" value="Sing Up" className='btn bg-[#043730] hover:bg-[#043730] text-white normal-case w-3/4 lg:w-2/4' />
