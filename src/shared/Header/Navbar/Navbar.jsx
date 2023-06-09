@@ -1,30 +1,63 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+import { FaUserCircle } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+
 
 
 const Navbar = () => {
 
+    const { user, logOut } = useAuth();
+
+    const handleLogout = () => {
+        logOut()
+            .then(result => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Logout successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .catch()
+    }
+
     const navOptions = <>
         <li>
-            <a>Home</a>
+            <Link>Home</Link>
         </li>
         <li>
-            <a>Coaches</a>
+            <Link>Coaches</Link>
         </li>
         <li>
             <Link to="/allClass">Classes</Link>
         </li>
         <li>
-            <a>Dashboard</a>
+            <Link>Dashboard</Link>
         </li>
         <li>
-            <Link to="/login">Login</Link>
+            {
+                user ?
+                    <div className="flex items-center gap-3">
+                        <div className="tooltip  tooltip-top" data-tip={user.displayName}>
+                            {
+                                user.photoURL ? <img className="rounded-full h-10 w-10" src={user.photoURL}></img> : <FaUserCircle className="h-10 w-10"></FaUserCircle>
+                            }
+                        </div>
+                        <Link onClick={handleLogout} className="btn btn-ghost font-semibold text-base">Log out</Link>
+                    </div> :
+                    <div className="flex items-center gap-3">
+                        <Link to="/login" className="btn btn-ghost font-semibold text-base">Login</Link>
+                    </div>
+            }
         </li>
     </>
 
     return (
         <div className='lg:container mx-auto'>
-            <div className="bg-[#173931] text-white navbar font-medium">
+            <div className="bg-[#173931] lg:text-white navbar font-medium">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -38,8 +71,8 @@ const Navbar = () => {
                         GoalGurus<br />FOOTBALL<br />ACADEMY
                     </small></a>
                 </div>
-                <div className="navbar-end hidden lg:flex ">
-                    <ul className="menu menu-horizontal px-1 uppercase">
+                <div className="navbar-end hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1 uppercase items-center">
                         {navOptions}
                     </ul>
                 </div>

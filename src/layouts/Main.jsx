@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
 import Navbar from '../shared/Header/Navbar/Navbar';
 import Footer from '../shared/Footer/Footer';
 
@@ -13,6 +13,7 @@ const Main = () => {
         <div>
             {noHeaderFooter || <Navbar></Navbar>}
             <Outlet></Outlet>
+            <ScrollRestoration></ScrollRestoration>
             {noHeaderFooter || <Footer></Footer>}
         </div>
     );
