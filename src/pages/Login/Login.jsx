@@ -3,6 +3,7 @@ import Lottie from "lottie-react";
 import animation from "../../assets/122987-admin-page-koperasi.json"
 import { FaFacebook, FaGoogle, FaGithub } from 'react-icons/fa';
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -12,7 +13,7 @@ const Login = () => {
                 <div className=' h-[500px] flex justify-center items-center'>
                     <Lottie animationData={animation} loop={true}></Lottie>
                 </div>
-                <div className="divider text-xl font-semibold">Sing Up</div>
+                <div className="divider text-xl font-semibold">Sing In</div>
                 <div className='bg-white pt-10 mt-10 rounded-t-2xl'>
                     <div className='md:w-3/4 mx-auto hero'>
                         <form className='hero-content w-full flex flex-col'>
@@ -34,7 +35,9 @@ const Login = () => {
                 <div className='bg-white rounded-b-2xl '>
                     <div className='md:w-3/4 mx-auto pb-10'>
                         <div className='text-center'>
-                            <button className='w-3/4 lg:w-2/4 btn bg-[#EE5B47] hover:bg-[#EE5B47] text-white normal-case'>Create New Account</button>
+                            <Link to="/singUp">
+                                <button className='w-3/4 lg:w-2/4 btn bg-[#EE5B47] hover:bg-[#EE5B47] text-white normal-case'>Create New Account</button>
+                            </Link>
                         </div>
                         <div className='w-3/4 lg:w-2/4 mx-auto my-5'>
                             <SocialLogin></SocialLogin>
