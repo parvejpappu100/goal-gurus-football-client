@@ -2,17 +2,22 @@ import React, { useState } from 'react';
 import Lottie from "lottie-react";
 import animation from "../../assets/143644-person-using-phone.json"
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import useAuth from '../../hooks/useAuth';
+import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 const SingUp = () => {
 
-    const [showPassword, setShowPassword] = useState(false);
-    const [image , setImage] = useState("");
-    console.log(image)
+    const { createUser } = useAuth();
+    const navigate = useNavigate();
 
+    const [singUpError, setSingUpError] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [passError, setPassError] = useState("");
 
@@ -26,23 +31,51 @@ const SingUp = () => {
             method: "POST",
             body: formData
         })
-        .then(res => res.json())
-        .then(imgResponse => {
-            if(imgResponse.success){
-                const imgURL = imgResponse.data.display_url;
-                setImage(imgURL);
-            }
-        })
+            .then(res => res.json())
+            .then(imgResponse => {
+                if (imgResponse.success) {
+                    const imgURL = imgResponse.data.display_url;
+                    
+                    if (data.password === data.confirmPassword) {
+                        setPassError("")
+                        console.log(data)
+                        createUser(data.email, data.password)
+                            .then(result => {
+                                const user = result.user;
+                                updateUserData(user, data.name, imgURL)
+                                setSingUpError("");
+                                navigate("/");
+                                Swal.fire({
+                                    position: 'top',
+                                    icon: 'success',
+                                    title: 'User Create Successfully',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                            })
+                            .catch(error => {
+                                setSingUpError(error.message)
+                            })
+                    }
+                    else {
+                        setPassError("Password dose not match . Please provide same password");
+                        return;
+                    }
+                }
+            })
+    }
 
-        if (data.password === data.confirmPassword) {
-            setPassError("")
-            console.log(data)
-            
-        }
-        else {
-            setPassError("Password dose not match . Please provide same password");
-            return;
-        }
+    const updateUserData = (user, name, photoUrl) => {
+        updateProfile(user, {
+            displayName: name,
+            photoURL: photoUrl
+        })
+            .then(() => {
+
+            })
+            .catch(error => {
+
+            })
     }
 
     const togglePasswordVisibility = () => {
@@ -108,6 +141,7 @@ const SingUp = () => {
 
                                 <input type="submit" value="Sing Up" className='btn bg-[#043730] hover:bg-[#043730] text-white normal-case w-3/4 lg:w-2/4' />
                             </form>
+                            <p className="text-red-400 text-center font-semibold">{singUpError}</p>
                         </div>
                     </div>
                     <div className='bg-white rounded-b-2xl '>
