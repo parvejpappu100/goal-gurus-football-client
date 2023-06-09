@@ -2,6 +2,7 @@ import React from 'react';
 import Lottie from "lottie-react";
 import animation from "../../assets/122987-admin-page-koperasi.json"
 import { FaFacebook, FaGoogle, FaGithub } from 'react-icons/fa';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 
 const Login = () => {
@@ -36,12 +37,7 @@ const Login = () => {
                             <button className='w-3/4 lg:w-2/4 btn bg-[#EE5B47] hover:bg-[#EE5B47] text-white normal-case'>Create New Account</button>
                         </div>
                         <div className='w-3/4 lg:w-2/4 mx-auto my-5'>
-                            <div className="divider text-xl font-semibold">Or continue with</div>
-                            <div className='flex gap-5 justify-center text-4xl my-5'>
-                                <FaGoogle></FaGoogle>
-                                <FaFacebook></FaFacebook>
-                                <FaGithub></FaGithub>
-                            </div>
+                            <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>
