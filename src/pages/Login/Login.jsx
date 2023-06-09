@@ -1,12 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Lottie from "lottie-react";
 import animation from "../../assets/122987-admin-page-koperasi.json"
 import { FaFacebook, FaGoogle, FaGithub } from 'react-icons/fa';
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
+
+    const { singIn } = useAuth();
+    const [logInError , setLogInError] = useState("");
+    const navigate = useNavigate();
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        singIn(email , password)
+        .then(result => {
+            const user = result.user;
+            setLogInError("")
+            navigate("/");
+            Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'User Login Successfully',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        })
+        .catch(error => {
+            setLogInError(error.message)
+        })
+    }
+
     return (
         <div className='bg-[#E4E0DB] p-5  lg:p-20'>
             <div className='bg-[#E4E0DB] shadow-2xl py-16 lg:p-20 pt-0 rounded-lg'>
@@ -16,18 +46,19 @@ const Login = () => {
                 <div className="divider text-xl font-semibold">Sing In</div>
                 <div className='bg-white pt-10 mt-10 rounded-t-2xl'>
                     <div className='md:w-3/4 mx-auto hero'>
-                        <form className='hero-content w-full flex flex-col'>
+                        <form onSubmit={handleLogin} className='hero-content w-full flex flex-col'>
                             <div className='card-body flex flex-col md:flex-row gap-5 w-full'>
                                 <div className="form-control w-full">
-                                    <input type="text" placeholder="Enter your email" className="input border-black input-bordered w-full" />
+                                    <input type="email" name='email' placeholder="Enter your email" className="input border-black input-bordered w-full" />
                                 </div>
                                 <div className="form-control w-full">
-                                    <input type="text" placeholder="Enter your password" className="input border-black input-bordered w-full" />
+                                    <input type="password" name='password' placeholder="Enter your password" className="input border-black input-bordered w-full" />
                                     <label className="label">
                                         <a href="#" className="label-text-alt text-xl font-semibold link link-hover">Forgot password?</a>
                                     </label>
                                 </div>
                             </div>
+                            <p className="text-red-400 text-center mb-2 font-semibold">{logInError}</p>
                             <input type="submit" value="Sing In" className='btn bg-[#043730] hover:bg-[#043730] text-white normal-case w-3/4 lg:w-2/4' />
                         </form>
                     </div>
