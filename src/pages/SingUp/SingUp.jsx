@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Lottie from "lottie-react";
-import animation from "../../assets/122987-admin-page-koperasi.json"
+import animation from "../../assets/143644-person-using-phone.json"
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
