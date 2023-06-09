@@ -2,6 +2,7 @@ import React from 'react';
 import { FaFacebook, FaGoogle, FaGithub } from 'react-icons/fa';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const SocialLogin = () => {
@@ -14,6 +15,13 @@ const SocialLogin = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'User Login Successfully',
+                showConfirmButton: false,
+                timer: 1500
+            })
             navigate("/")
         })
         .catch(error => {

@@ -78,6 +78,13 @@ const SingUp = () => {
                                     {errors.confirmPassword && <span className='text-red-600'>Confirm password is required</span>}
                                     <span className='text-red-600'>{passError}</span>
                                 </div>
+                                <div className="form-control w-full">
+                                    <label className="label">
+                                        <span className="label-text text-xl font-medium">Your Photo</span>
+                                    </label>
+                                    <input type="file" className="file-input file-input-bordered w-full" />
+                                </div>
+
                                 <input type="submit" value="Sing Up" className='btn bg-[#043730] hover:bg-[#043730] text-white normal-case w-3/4 lg:w-2/4' />
                             </form>
                         </div>
