@@ -34,7 +34,7 @@ const PopularCoach = () => {
             >
                 {
                     coaches.slice(0 , 6).map(coach => <SwiperSlide key={coach._id}>
-                        <img src={coach.image} alt="" />
+                        <img className='grayscale hover:grayscale-0 transition duration-500' src={coach.image} alt="" />
                         <h3 className='text-[12px] md:text-xl font-semibold mt-5'>{coach.name}</h3>
                     </SwiperSlide>)
                 }
