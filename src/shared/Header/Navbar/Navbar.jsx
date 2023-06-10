@@ -41,15 +41,15 @@ const Navbar = () => {
             {
                 user ?
                     <div className="flex items-center gap-3">
-                        <div className="tooltip  tooltip-top" data-tip={user.displayName}>
+                        <div className="tooltip  tooltip-bottom" data-tip={user.displayName}>
                             {
                                 user.photoURL ? <img className="rounded-full h-10 w-10" src={user.photoURL}></img> : <FaUserCircle className="h-10 w-10"></FaUserCircle>
                             }
                         </div>
-                        <Link onClick={handleLogout} className="btn btn-ghost font-semibold text-base">Log out</Link>
+                        <Link onClick={handleLogout} className="font-semibold text-base">Log out</Link>
                     </div> :
                     <div className="flex items-center gap-3">
-                        <Link to="/login" className="btn btn-ghost font-semibold text-base">Login</Link>
+                        <Link to="/login" className=" font-semibold text-base">Login</Link>
                     </div>
             }
         </li>

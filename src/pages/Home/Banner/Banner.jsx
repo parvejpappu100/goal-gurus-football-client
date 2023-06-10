@@ -9,7 +9,7 @@ const Slider = () => {
         <div className=''>
             <img src="https://i.ibb.co/GHkwX6x/finalP.png" alt="" />
             <div className='inset-0 absolute md:flex justify-center items-center lg:pb-20 hidden'>
-                <div className=' text-2xl lg:text-5xl text-white uppercase flex flex-col space-y-2 lg:space-y-5 font-family'>
+                <div className=' text-2xl lg:text-5xl font-semibold text-white uppercase flex flex-col space-y-2 lg:space-y-5 font-family'>
                     <span className='text-center'>Welcome <br /></span>
                     <span className='lg:mr-36'>To Best <br /></span>
                     <span className='text-end'>Football <br /></span>
