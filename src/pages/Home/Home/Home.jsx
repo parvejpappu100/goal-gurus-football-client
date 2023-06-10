@@ -10,7 +10,7 @@ import PopularClasses from '../PopularClasses/PopularClasses';
 const Home = () => {
     return (
         <div>
-            {/* <Banner></Banner> */}
+            <Banner></Banner>
             <About></About>
             <CoachSay></CoachSay>
             <AcademyProgram></AcademyProgram>

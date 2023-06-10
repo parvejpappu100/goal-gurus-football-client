@@ -56,8 +56,8 @@ const Navbar = () => {
     </>
 
     return (
-        <div className='lg:container mx-auto'>
-            <div className="bg-[#173931] lg:text-white navbar font-medium">
+        <div className=''>
+            <div className="bg-black bg-opacity-30 lg:text-white navbar font-medium fixed z-10">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -67,7 +67,7 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost  normal-case"><small>
+                    <a className="btn btn-ghost text-white  normal-case"><small>
                         GoalGurus<br />FOOTBALL<br />ACADEMY
                     </small></a>
                 </div>
