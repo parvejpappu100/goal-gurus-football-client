@@ -1,0 +1,218 @@
+[
+  {
+    "_id": 1,
+    "name": "Beginner's Kickoff",
+    "image": "class1.jpg",
+    "price": 50,
+    "available_seats": 10,
+    "enrolled_students": 0,
+    "coach": "John Doe"
+  },
+  {
+    "_id": 2,
+    "name": "Ball Control Mastery",
+    "image": "class2.jpg",
+    "price": 60,
+    "available_seats": 12,
+    "enrolled_students": 0,
+    "coach": "Jane Smith"
+  },
+  {
+    "_id": 3,
+    "name": "Goal Scoring Tactics",
+    "image": "class3.jpg",
+    "price": 55,
+    "available_seats": 8,
+    "enrolled_students": 0,
+    "coach": "Mike Johnson"
+  },
+  {
+    "_id": 4,
+    "name": "Defensive Strategies",
+    "image": "class4.jpg",
+    "price": 70,
+    "available_seats": 15,
+    "enrolled_students": 0,
+    "coach": "Sarah Anderson"
+  },
+  {
+    "_id": 5,
+    "name": "Speed and Agility Training",
+    "image": "class5.jpg",
+    "price": 65,
+    "available_seats": 5,
+    "enrolled_students": 0,
+    "coach": "Mark Thompson"
+  },
+  {
+    "_id": 6,
+    "name": "Midfield Dominance",
+    "image": "class6.jpg",
+    "price": 80,
+    "available_seats": 14,
+    "enrolled_students": 0,
+    "coach": "Emily Davis"
+  },
+  {
+    "_id": 7,
+    "name": "Striker's Finishing Techniques",
+    "image": "class7.jpg",
+    "price": 70,
+    "available_seats": 11,
+    "enrolled_students": 0,
+    "coach": "Alex Wilson"
+  },
+  {
+    "_id": 8,
+    "name": "Defensive Midfield Mastery",
+    "image": "class8.jpg",
+    "price": 55,
+    "available_seats": 9,
+    "enrolled_students": 0,
+    "coach": "Jessica Brown"
+  },
+  {
+    "_id": 9,
+    "name": "Goalkeeper's Guide",
+    "image": "class9.jpg",
+    "price": 75,
+    "available_seats": 13,
+    "enrolled_students": 0,
+    "coach": "David Johnson"
+  },
+  {
+    "_id": 10,
+    "name": "Dribbling Techniques",
+    "image": "class10.jpg",
+    "price": 55,
+    "available_seats": 6,
+    "enrolled_students": 0,
+    "coach": "Olivia Davis"
+  },
+  {
+    "_id": 11,
+    "name": "Tactical Game Analysis",
+    "image": "class11.jpg",
+    "price": 90,
+    "available_seats": 10,
+    "enrolled_students": 0,
+    "coach": "Daniel Wilson"
+  },
+  {
+    "_id": 12,
+    "name": "Team Building Strategies",
+    "image": "class12.jpg",
+    "price": 80,
+    "available_seats": 7,
+    "enrolled_students": 0,
+    "coach": "Sophia Thompson"
+  },
+  {
+    "_id": 13,
+    "name": "Advanced Tactical Strategies",
+    "image": "class12.jpg",
+    "price": 75,
+    "available_seats": 10,
+    "enrolled_students": 0,
+    "coach": "John Doe"
+  },
+  {
+    "_id": 14,
+    "name": "Goalkeeper's Reflex Training",
+    "image": "class13.jpg",
+    "price": 65,
+    "available_seats": 8,
+    "enrolled_students": 0,
+    "coach": "Jane Smith"
+  },
+  {
+    "_id": 15,
+    "name": "Defensive Line Coordination",
+    "image": "class14.jpg",
+    "price": 80,
+    "available_seats": 12,
+    "enrolled_students": 0,
+    "coach": "Mike Johnson"
+  },
+  {
+    "_id": 16,
+    "name": "Attacking Strategies",
+    "image": "class15.jpg",
+    "price": 70,
+    "available_seats": 15,
+    "enrolled_students": 0,
+    "coach": "Sarah Anderson"
+  },
+  {
+    "_id": 17,
+    "name": "Shooting Techniques",
+    "image": "class16.jpg",
+    "price": 60,
+    "available_seats": 7,
+    "enrolled_students": 0,
+    "coach": "Mark Thompson"
+  },
+  {
+    "_id": 18,
+    "name": "Midfield Playmaker Skills",
+    "image": "class17.jpg",
+    "price": 85,
+    "available_seats": 10,
+    "enrolled_students": 0,
+    "coach": "Emily Davis"
+  },
+  {
+    "_id": 19,
+    "name": "Speed and Agility Drills",
+    "image": "class18.jpg",
+    "price": 55,
+    "available_seats": 9,
+    "enrolled_students": 0,
+    "coach": "Alex Wilson"
+  },
+  {
+    "_id": 20,
+    "name": "Free Kick Masterclass",
+    "image": "class19.jpg",
+    "price": 70,
+    "available_seats": 13,
+    "enrolled_students": 0,
+    "coach": "Jessica Brown"
+  },
+  {
+    "_id": 21,
+    "name": "Defensive Tactics",
+    "image": "class20.jpg",
+    "price": 75,
+    "available_seats": 6,
+    "enrolled_students": 0,
+    "coach": "David Johnson"
+  },
+  {
+    "_id": 22,
+    "name": "Leadership on the Field",
+    "image": "class21.jpg",
+    "price": 90,
+    "available_seats": 10,
+    "enrolled_students": 0,
+    "coach": "Olivia Davis"
+  },
+  {
+    "_id": 23,
+    "name": "One-on-One Duels",
+    "image": "class22.jpg",
+    "price": 60,
+    "available_seats": 8,
+    "enrolled_students": 0,
+    "coach": "Daniel Wilson"
+  },
+  {
+    "_id": 24,
+    "name": "Creating Scoring Opportunities",
+    "image": "class23.jpg",
+    "price": 80,
+    "available_seats": 12,
+    "enrolled_students": 0,
+    "coach": "Sophia Thompson"
+  }
+]
