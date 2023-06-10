@@ -5,7 +5,7 @@ const AcademyProgram = () => {
     return (
         <div className='bg-[#D6DEDC]'>
             <div className='lg:container mx-auto py-20'>
-                <h3 className='flex justify-center my-5 text-4xl'>Find Your Game With The <br /> GoalGurus Football Academy</h3>
+                <h3 className='flex justify-center my-5 text-4xl px-1'>Find Your Game With The <br /> GoalGurus Football Academy</h3>
                 <div className=' flex flex-col items-start'>
                     <div className='flex flex-col lg:flex-row gap-8 lg:items-center my-5 w-full px-4 lg:px-0 '>
                         <div className='flex flex-col lg:flex-row lg:items-center gap-8 justify-between lg:w-1/3'>

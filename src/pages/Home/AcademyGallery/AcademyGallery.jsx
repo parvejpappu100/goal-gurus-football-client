@@ -9,8 +9,9 @@ const AcademyGallery = () => {
                 <img className='w-1/4 transform -rotate-12' src="https://i.ibb.co/zZXN6wW/gallery2.jpg" alt="" />
                 <img className='w-1/4 transform -rotate-12' src="https://i.ibb.co/Xj2YpSW/gallery3.jpg" alt="" />
             </div>
-            <div className='flex justify-center mt-32'>
-                <button className='hover:bg-[#173931] hover:text-white duration-500 border border-black py-2 px-7 uppercase rounded-3xl'>View Matches</button>
+            <div className='lg:container mx-auto text-center mt-32'>
+                <button className=' hover:bg-[#173931] hover:text-white duration-500 border border-black py-2 px-7 uppercase rounded-3xl'>View Matches</button>
+                <p className='border border-red-400 mt-20'></p>
             </div>
         </div>
     );
