@@ -2,7 +2,7 @@
   {
     "_id": 1,
     "name": "Beginner's Kickoff",
-    "image": "class1.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 50,
     "available_seats": 10,
     "enrolled_students": 0,
@@ -11,7 +11,7 @@
   {
     "_id": 2,
     "name": "Ball Control Mastery",
-    "image": "class2.jpg",
+    "image": "https://img.freepik.com/free-photo/football-player-preparing-free-kick_23-2147644409.jpg?w=740&t=st=1686426173~exp=1686426773~hmac=5f488bb6fa4ee5ccbeff2235a937810725a67281fff90e486f5f1bf49ce95b9c",
     "price": 60,
     "available_seats": 12,
     "enrolled_students": 0,
@@ -20,7 +20,7 @@
   {
     "_id": 3,
     "name": "Goal Scoring Tactics",
-    "image": "class3.jpg",
+    "image": "https://images.unsplash.com/photo-1603291697926-7e5822ed1ac5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80",
     "price": 55,
     "available_seats": 8,
     "enrolled_students": 0,
@@ -29,7 +29,7 @@
   {
     "_id": 4,
     "name": "Defensive Strategies",
-    "image": "class4.jpg",
+    "image": "https://img.freepik.com/free-photo/full-shot-kids-playing-football-field_23-2149270949.jpg?w=1380&t=st=1686426393~exp=1686426993~hmac=42d7fcd1601a6f4f4f1cdcffdc38d53aa6ab6941474e3c360fa387ebdb70fd9e",
     "price": 70,
     "available_seats": 15,
     "enrolled_students": 0,
@@ -38,7 +38,7 @@
   {
     "_id": 5,
     "name": "Speed and Agility Training",
-    "image": "class5.jpg",
+    "image": "https://img.freepik.com/free-photo/full-shot-kids-training-field_23-2149270941.jpg?w=1380&t=st=1686426422~exp=1686427022~hmac=86bdbfc8aca1ce7e4b557270827af0eecc60b5488d1a3068d9625871f457048c",
     "price": 65,
     "available_seats": 5,
     "enrolled_students": 0,
@@ -47,7 +47,7 @@
   {
     "_id": 6,
     "name": "Midfield Dominance",
-    "image": "class6.jpg",
+    "image": "https://img.freepik.com/free-photo/full-shot-children-playing-football_23-2149270951.jpg?w=1380&t=st=1686426524~exp=1686427124~hmac=b2635933a560260e2969dd630793532aff3307e608533e09fd427fb336f2be5c",
     "price": 80,
     "available_seats": 14,
     "enrolled_students": 0,
@@ -56,7 +56,7 @@
   {
     "_id": 7,
     "name": "Striker's Finishing Techniques",
-    "image": "class7.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 70,
     "available_seats": 11,
     "enrolled_students": 0,
@@ -65,7 +65,7 @@
   {
     "_id": 8,
     "name": "Defensive Midfield Mastery",
-    "image": "class8.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 55,
     "available_seats": 9,
     "enrolled_students": 0,
@@ -74,7 +74,7 @@
   {
     "_id": 9,
     "name": "Goalkeeper's Guide",
-    "image": "class9.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 75,
     "available_seats": 13,
     "enrolled_students": 0,
@@ -83,7 +83,7 @@
   {
     "_id": 10,
     "name": "Dribbling Techniques",
-    "image": "class10.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 55,
     "available_seats": 6,
     "enrolled_students": 0,
@@ -92,7 +92,7 @@
   {
     "_id": 11,
     "name": "Tactical Game Analysis",
-    "image": "class11.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 90,
     "available_seats": 10,
     "enrolled_students": 0,
@@ -101,7 +101,7 @@
   {
     "_id": 12,
     "name": "Team Building Strategies",
-    "image": "class12.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 80,
     "available_seats": 7,
     "enrolled_students": 0,
@@ -110,7 +110,7 @@
   {
     "_id": 13,
     "name": "Advanced Tactical Strategies",
-    "image": "class12.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 75,
     "available_seats": 10,
     "enrolled_students": 0,
@@ -119,7 +119,7 @@
   {
     "_id": 14,
     "name": "Goalkeeper's Reflex Training",
-    "image": "class13.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 65,
     "available_seats": 8,
     "enrolled_students": 0,
@@ -128,7 +128,7 @@
   {
     "_id": 15,
     "name": "Defensive Line Coordination",
-    "image": "class14.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 80,
     "available_seats": 12,
     "enrolled_students": 0,
@@ -137,7 +137,7 @@
   {
     "_id": 16,
     "name": "Attacking Strategies",
-    "image": "class15.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 70,
     "available_seats": 15,
     "enrolled_students": 0,
@@ -146,7 +146,7 @@
   {
     "_id": 17,
     "name": "Shooting Techniques",
-    "image": "class16.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 60,
     "available_seats": 7,
     "enrolled_students": 0,
@@ -155,7 +155,7 @@
   {
     "_id": 18,
     "name": "Midfield Playmaker Skills",
-    "image": "class17.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 85,
     "available_seats": 10,
     "enrolled_students": 0,
@@ -164,7 +164,7 @@
   {
     "_id": 19,
     "name": "Speed and Agility Drills",
-    "image": "class18.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 55,
     "available_seats": 9,
     "enrolled_students": 0,
@@ -173,7 +173,7 @@
   {
     "_id": 20,
     "name": "Free Kick Masterclass",
-    "image": "class19.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 70,
     "available_seats": 13,
     "enrolled_students": 0,
@@ -182,7 +182,7 @@
   {
     "_id": 21,
     "name": "Defensive Tactics",
-    "image": "class20.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 75,
     "available_seats": 6,
     "enrolled_students": 0,
@@ -191,7 +191,7 @@
   {
     "_id": 22,
     "name": "Leadership on the Field",
-    "image": "class21.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 90,
     "available_seats": 10,
     "enrolled_students": 0,
@@ -200,7 +200,7 @@
   {
     "_id": 23,
     "name": "One-on-One Duels",
-    "image": "class22.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 60,
     "available_seats": 8,
     "enrolled_students": 0,
@@ -209,7 +209,7 @@
   {
     "_id": 24,
     "name": "Creating Scoring Opportunities",
-    "image": "class23.jpg",
+    "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 80,
     "available_seats": 12,
     "enrolled_students": 0,

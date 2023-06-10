@@ -17,7 +17,7 @@ const PopularCoach = () => {
             .then(res => res.json())
             .then(data => setCoaches(data))
     }, [])
-    console.log(coaches)
+    
     return (
         <div className=' bg-[#F5E1DA] pb-20'>
             <div className='lg:container mx-auto'>

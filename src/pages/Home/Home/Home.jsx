@@ -5,6 +5,7 @@ import CoachSay from '../CoachSay/CoachSay';
 import AcademyProgram from '../AcademyProgram/AcademyProgram';
 import AcademyGallery from '../AcademyGallery/AcademyGallery';
 import PopularCoach from '../PopularCoach/PopularCoach';
+import PopularClasses from '../PopularClasses/PopularClasses';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <AcademyProgram></AcademyProgram>
             <AcademyGallery></AcademyGallery>
             <PopularCoach></PopularCoach>
+            <PopularClasses></PopularClasses>
         </div>
     );
 };
