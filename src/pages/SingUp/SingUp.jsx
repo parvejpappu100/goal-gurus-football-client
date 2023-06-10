@@ -17,7 +17,7 @@ const SingUp = () => {
 
     const [singUpError, setSingUpError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [passError, setPassError] = useState("");
 
@@ -35,7 +35,7 @@ const SingUp = () => {
             .then(imgResponse => {
                 if (imgResponse.success) {
                     const imgURL = imgResponse.data.display_url;
-                    
+
                     if (data.password === data.confirmPassword) {
                         setPassError("")
                         console.log(data)
@@ -95,26 +95,26 @@ const SingUp = () => {
 
                                 <div className="form-control w-full">
                                     <label className="label">
-                                        <span className="label-text text-xl font-medium">Name</span>
+                                        <span className="label-text text-xl font-medium">Name*</span>
                                     </label>
                                     <input type="text" {...register("name", { required: true })} placeholder="Your name" name='name' className="input input-bordered " />
                                     {errors.name && <span className='text-red-600'>Name is required</span>}
                                 </div>
                                 <div className="form-control w-full">
                                     <label className="label">
-                                        <span className="label-text text-xl font-medium">Email</span>
+                                        <span className="label-text text-xl font-medium">Email*</span>
                                     </label>
                                     <input type="text" {...register("email", { required: true })} placeholder="Your email" name='email' className="input input-bordered " />
                                     {errors.email && <span className='text-red-600'>Email is required</span>}
                                 </div>
                                 <div className="form-control w-full relative">
                                     <label className="label">
-                                        <span className="label-text text-xl font-medium">Password</span>
+                                        <span className="label-text text-xl font-medium">Password*</span>
                                     </label>
                                     <input type={showPassword ? "text" : "password"} {...register("password", { required: true, minLength: 6, maxLength: 20, pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/ })} placeholder="Your Password" name='password' className="input input-bordered " />
                                     <button
                                         type="button" // Change the type to "button"
-                                        className="absolute top-[75%] right-3 transform -translate-y-1/2 focus:outline-none text-xl"
+                                        className="absolute top-[65%] right-3 transform -translate-y-1/2 focus:outline-none text-xl"
                                         onClick={togglePasswordVisibility}
                                     >
                                         {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
@@ -126,7 +126,7 @@ const SingUp = () => {
                                 </div>
                                 <div className="form-control w-full relative">
                                     <label className="label">
-                                        <span className="label-text text-xl font-medium">Confirm Password</span>
+                                        <span className="label-text text-xl font-medium">Confirm Password*</span>
                                     </label>
                                     <input type={showPassword ? "text" : "password"} {...register("confirmPassword", { required: true })} placeholder="Your Password" name='confirmPassword' className="input input-bordered " />
                                     {errors.confirmPassword && <span className='text-red-600'>Confirm password is required</span>}
@@ -134,9 +134,10 @@ const SingUp = () => {
                                 </div>
                                 <div className="form-control w-full">
                                     <label className="label">
-                                        <span className="label-text text-xl font-medium">Your Photo</span>
+                                        <span className="label-text text-xl font-medium">Your Photo*</span>
                                     </label>
                                     <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full" />
+                                    {errors.image && <span className='text-red-600'>Image is required</span>}
                                 </div>
 
                                 <input type="submit" value="Sing Up" className='btn bg-[#043730] hover:bg-[#043730] text-white normal-case w-3/4 lg:w-2/4' />
