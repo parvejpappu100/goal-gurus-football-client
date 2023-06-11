@@ -1,6 +1,5 @@
 [
   {
-    "_id": 1,
     "name": "Beginner's Kickoff",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 50,
@@ -9,7 +8,6 @@
     "coach": "John Doe"
   },
   {
-    "_id": 2,
     "name": "Ball Control Mastery",
     "image": "https://img.freepik.com/free-photo/football-player-preparing-free-kick_23-2147644409.jpg?w=740&t=st=1686426173~exp=1686426773~hmac=5f488bb6fa4ee5ccbeff2235a937810725a67281fff90e486f5f1bf49ce95b9c",
     "price": 60,
@@ -18,7 +16,6 @@
     "coach": "Jane Smith"
   },
   {
-    "_id": 3,
     "name": "Goal Scoring Tactics",
     "image": "https://images.unsplash.com/photo-1603291697926-7e5822ed1ac5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80",
     "price": 55,
@@ -27,7 +24,6 @@
     "coach": "Mike Johnson"
   },
   {
-    "_id": 4,
     "name": "Defensive Strategies",
     "image": "https://img.freepik.com/free-photo/full-shot-kids-playing-football-field_23-2149270949.jpg?w=1380&t=st=1686426393~exp=1686426993~hmac=42d7fcd1601a6f4f4f1cdcffdc38d53aa6ab6941474e3c360fa387ebdb70fd9e",
     "price": 70,
@@ -36,7 +32,6 @@
     "coach": "Sarah Anderson"
   },
   {
-    "_id": 5,
     "name": "Speed and Agility Training",
     "image": "https://img.freepik.com/free-photo/full-shot-kids-training-field_23-2149270941.jpg?w=1380&t=st=1686426422~exp=1686427022~hmac=86bdbfc8aca1ce7e4b557270827af0eecc60b5488d1a3068d9625871f457048c",
     "price": 65,
@@ -45,7 +40,6 @@
     "coach": "Mark Thompson"
   },
   {
-    "_id": 6,
     "name": "Midfield Dominance",
     "image": "https://img.freepik.com/free-photo/full-shot-children-playing-football_23-2149270951.jpg?w=1380&t=st=1686426524~exp=1686427124~hmac=b2635933a560260e2969dd630793532aff3307e608533e09fd427fb336f2be5c",
     "price": 80,
@@ -54,7 +48,6 @@
     "coach": "Emily Davis"
   },
   {
-    "_id": 7,
     "name": "Striker's Finishing Techniques",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 70,
@@ -63,7 +56,6 @@
     "coach": "Alex Wilson"
   },
   {
-    "_id": 8,
     "name": "Defensive Midfield Mastery",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 55,
@@ -72,7 +64,6 @@
     "coach": "Jessica Brown"
   },
   {
-    "_id": 9,
     "name": "Goalkeeper's Guide",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 75,
@@ -81,7 +72,6 @@
     "coach": "David Johnson"
   },
   {
-    "_id": 10,
     "name": "Dribbling Techniques",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 55,
@@ -90,7 +80,6 @@
     "coach": "Olivia Davis"
   },
   {
-    "_id": 11,
     "name": "Tactical Game Analysis",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 90,
@@ -99,7 +88,6 @@
     "coach": "Daniel Wilson"
   },
   {
-    "_id": 12,
     "name": "Team Building Strategies",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 80,
@@ -108,7 +96,6 @@
     "coach": "Sophia Thompson"
   },
   {
-    "_id": 13,
     "name": "Advanced Tactical Strategies",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 75,
@@ -117,7 +104,6 @@
     "coach": "John Doe"
   },
   {
-    "_id": 14,
     "name": "Goalkeeper's Reflex Training",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 65,
@@ -126,7 +112,6 @@
     "coach": "Jane Smith"
   },
   {
-    "_id": 15,
     "name": "Defensive Line Coordination",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 80,
@@ -135,7 +120,6 @@
     "coach": "Mike Johnson"
   },
   {
-    "_id": 16,
     "name": "Attacking Strategies",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 70,
@@ -144,7 +128,6 @@
     "coach": "Sarah Anderson"
   },
   {
-    "_id": 17,
     "name": "Shooting Techniques",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 60,
@@ -153,7 +136,6 @@
     "coach": "Mark Thompson"
   },
   {
-    "_id": 18,
     "name": "Midfield Playmaker Skills",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 85,
@@ -162,7 +144,6 @@
     "coach": "Emily Davis"
   },
   {
-    "_id": 19,
     "name": "Speed and Agility Drills",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 55,
@@ -171,7 +152,6 @@
     "coach": "Alex Wilson"
   },
   {
-    "_id": 20,
     "name": "Free Kick Masterclass",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 70,
@@ -180,7 +160,6 @@
     "coach": "Jessica Brown"
   },
   {
-    "_id": 21,
     "name": "Defensive Tactics",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 75,
@@ -189,7 +168,6 @@
     "coach": "David Johnson"
   },
   {
-    "_id": 22,
     "name": "Leadership on the Field",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 90,
@@ -198,7 +176,6 @@
     "coach": "Olivia Davis"
   },
   {
-    "_id": 23,
     "name": "One-on-One Duels",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 60,
@@ -207,7 +184,6 @@
     "coach": "Daniel Wilson"
   },
   {
-    "_id": 24,
     "name": "Creating Scoring Opportunities",
     "image": "https://img.freepik.com/free-photo/football-trainer-congratulating-kid-side-view_23-2149742037.jpg?w=740&t=st=1686424052~exp=1686424652~hmac=3de26e3f26feaf7599658edd6903951bdfd5e47cb4c00cfd4e8400be56339899",
     "price": 80,

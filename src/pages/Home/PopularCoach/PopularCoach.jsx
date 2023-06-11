@@ -13,7 +13,7 @@ const PopularCoach = () => {
     const [coaches, setCoaches] = useState([]);
 
     useEffect(() => {
-        fetch("coaches.json")
+        fetch("http://localhost:5000/coaches")
             .then(res => res.json())
             .then(data => setCoaches(data))
     }, [])

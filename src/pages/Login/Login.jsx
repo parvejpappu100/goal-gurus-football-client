@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Lottie from "lottie-react";
 import animation from "../../assets/122987-admin-page-koperasi.json"
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
@@ -15,6 +15,10 @@ const Login = () => {
     const [logInError , setLogInError] = useState("");
     const navigate = useNavigate();
 
+    
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = (data , event) => {
@@ -25,7 +29,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             setLogInError("")
-            navigate("/");
+            navigate(from , {replace: true});
             Swal.fire({
                 position: 'top',
                 icon: 'success',

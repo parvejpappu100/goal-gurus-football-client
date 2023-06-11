@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Lottie from "lottie-react";
 import animation from "../../assets/143644-person-using-phone.json"
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import useAuth from '../../hooks/useAuth';
@@ -14,7 +14,10 @@ const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 const SingUp = () => {
 
     const { createUser } = useAuth();
+
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const [singUpError, setSingUpError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -45,7 +48,7 @@ const SingUp = () => {
                                 const user = result.user;
                                 updateUserData(user, data.name, imgURL)
                                 setSingUpError("");
-                                navigate("/");
+                                navigate(from , {replace: true});
                                 Swal.fire({
                                     position: 'top',
                                     icon: 'success',
