@@ -8,6 +8,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import useAuth from '../../hooks/useAuth';
 import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 const SingUp = () => {
@@ -84,6 +85,9 @@ const SingUp = () => {
 
     return (
         <div className='bg-[#E4E0DB] p-5  lg:p-20'>
+            <Helmet>
+                <title>Sing Up | GoalGurus Football Academy</title>
+            </Helmet>
             <div className='flex flex-col-reverse  lg:flex-row items-center bg-[#E4E0DB] shadow-2xl py-16 lg:p-20 pt-0 rounded-lg'>
                 <div className='w-full h-[500px] flex justify-center items-center'>
                     <Lottie animationData={animation} loop={true}></Lottie>

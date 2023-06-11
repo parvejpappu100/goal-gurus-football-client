@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../../shared/Banner/Banner';
 import ShowAllClasses from '../../components/ShowAllClasses/ShowAllClasses';
+import { Helmet } from 'react-helmet-async';
 
 const Classes = () => {
 
@@ -19,6 +20,9 @@ const Classes = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Classes | GoalGurus Football Academy</title>
+            </Helmet>
             <Banner
                 img={"https://i.ibb.co/GnXMkGv/banner.webp"}
                 title={"Our Classes"}

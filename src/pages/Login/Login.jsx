@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
+import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
@@ -40,6 +41,9 @@ const Login = () => {
 
     return (
         <div className='bg-[#E4E0DB] p-5  lg:p-20'>
+            <Helmet>
+                <title>Login | GoalGurus Football Academy</title>
+            </Helmet>
             <div className='bg-[#E4E0DB] shadow-2xl py-16 lg:p-20 pt-0 rounded-lg'>
                 <div className=' h-[500px] flex justify-center items-center'>
                     <Lottie animationData={animation} loop={true}></Lottie>
