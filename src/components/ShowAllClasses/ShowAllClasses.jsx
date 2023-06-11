@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useCart from '../../hooks/useCart';
 
 const ShowAllClasses = ({ classes }) => {
     const { name, image, available_seats, coach, price  , _id} = classes;
@@ -9,6 +10,8 @@ const ShowAllClasses = ({ classes }) => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
+
+    const [ , refetch] = useCart();
 
     const handleSelect = (classes) => {
         if (user && user.email) {
@@ -24,6 +27,7 @@ const ShowAllClasses = ({ classes }) => {
                 .then(data => {
                     console.log(data)
                     if (data.insertedId) {
+                        refetch();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',

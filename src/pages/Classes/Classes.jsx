@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Banner from '../../shared/Banner/Banner';
 import ShowAllClasses from '../../components/ShowAllClasses/ShowAllClasses';
 import { Helmet } from 'react-helmet-async';
+import useCart from '../../hooks/useCart';
 
 const Classes = () => {
 
