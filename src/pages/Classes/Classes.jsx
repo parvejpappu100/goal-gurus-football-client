@@ -1,9 +1,14 @@
 import React from 'react';
+import Banner from '../../shared/Banner/Banner';
 
 const Classes = () => {
     return (
         <div>
-            <h1>all classes here</h1>
+            <Banner
+                img={"https://i.ibb.co/GnXMkGv/banner.webp"}
+                title={"Our Classes"}
+                details={"Home > Classes"}
+            ></Banner>
         </div>
     );
 };
