@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home/Home";
 import Classes from "../pages/Classes/Classes";
 import Login from "../pages/Login/Login";
 import SingUp from "../pages/SingUp/SingUp";
+import Coaches from "../pages/Coaches/Coaches";
 
 const router = createBrowserRouter([
     {
@@ -23,8 +24,12 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path : "singUp",
+                path: "singUp",
                 element: <SingUp></SingUp>
+            },
+            {
+                path: "coaches",
+                element: <Coaches></Coaches>
             }
         ]
     },

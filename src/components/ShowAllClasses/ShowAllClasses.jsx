@@ -3,12 +3,7 @@ import React, { useState } from 'react';
 const ShowAllClasses = ({ classes }) => {
     const { name, image, available_seats, coach, price } = classes;
 
-    // const [disable , setDisable] = useState(false);
-    // if(available_seats === 10){
-    //     setDisable(true)
-    // }
-
-
+    
     return (
         <div className='p-5 border'>
             <img className='h-[400px] w-full' src={image} alt="" />
