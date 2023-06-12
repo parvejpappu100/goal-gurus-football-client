@@ -13,9 +13,10 @@ const ShowAllClasses = ({ classes }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const [, refetch] = useCart();
-    const [disabled, setDisabled] = useState(false);
+    const [cart, refetch] = useCart();
 
+    const isExits = cart.find(ct => ct.classId == _id);
+    
     const handleSelect = (classes) => {
         if (user && user.email) {
             const selectedClass = { name, image, coach, price, classId: _id, email: user.email }
@@ -31,7 +32,6 @@ const ShowAllClasses = ({ classes }) => {
                     console.log(data)
                     if (data.insertedId) {
                         refetch();
-                        setDisabled(true);
                         toast.success("Class Selected", {
                             position: "top-right",
                             autoClose: 2000,
@@ -69,7 +69,7 @@ const ShowAllClasses = ({ classes }) => {
             <h6 className='text-xl'>Coach : {coach}</h6>
             <p className='my-1'>Available Seat :  {available_seats}</p>
             <p >Price : <span className='text-yellow-600 font-semibold'>${price}</span></p>
-            <button onClick={() => handleSelect(classes)} disabled={available_seats == 0 ? true : false || disabled} className=' btn btn-ghost mt-3 btn-sm normal-case border border-black'>
+            <button onClick={() => handleSelect(classes)} disabled={available_seats == 0 || isExits ? true : false} className=' btn btn-ghost mt-3 btn-sm normal-case border border-black'>
                 Select
                 <ToastContainer
                     position="top-right"
