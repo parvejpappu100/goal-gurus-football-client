@@ -9,7 +9,7 @@ const DashBoard = () => {
     const [cart] = useCart();
 
     // * TODO: load data from the server to have dynamic isAdmin based on data:
-    const isAdmin = false;
+    const isAdmin = true;
     const isCoach = false;
 
     return (
@@ -37,7 +37,7 @@ const DashBoard = () => {
                                     <Link><FaSquareFull></FaSquareFull>Manage Classes</Link>
                                 </li>
                                 <li>
-                                    <Link><FaUsers></FaUsers>Manage Users</Link>
+                                    <Link to="/dashboard/allUsers"><FaUsers></FaUsers>Manage Users</Link>
                                 </li>
                             </> || isCoach && <>
                                 <li>
