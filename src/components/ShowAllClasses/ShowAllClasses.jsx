@@ -3,21 +3,23 @@ import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ShowAllClasses = ({ classes }) => {
-    const { name, image, available_seats, coach, price  , _id} = classes;
+    const { name, image, available_seats, coach, price, _id } = classes;
 
     const { user } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
 
-    const [ , refetch] = useCart();
-    const [disabled , setDisabled] = useState(false);
-    
+    const [, refetch] = useCart();
+    const [disabled, setDisabled] = useState(false);
+
     const handleSelect = (classes) => {
         if (user && user.email) {
-            const selectedClass = {name, image, coach, price  ,classId: _id , email: user.email}
-            fetch("http://localhost:5000/carts" , {
+            const selectedClass = { name, image, coach, price, classId: _id, email: user.email }
+            fetch("http://localhost:5000/carts", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -30,12 +32,15 @@ const ShowAllClasses = ({ classes }) => {
                     if (data.insertedId) {
                         refetch();
                         setDisabled(true);
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Class Selected Successfully',
-                            showConfirmButton: false,
-                            timer: 1500
+                        toast.success("Class Selected", {
+                            position: "top-right",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
                         })
                     }
                 })
@@ -51,7 +56,7 @@ const ShowAllClasses = ({ classes }) => {
                 confirmButtonText: 'Go to login!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                   navigate("/login" , {state: {from: location}})
+                    navigate("/login", { state: { from: location } })
                 }
             })
         }
@@ -64,7 +69,24 @@ const ShowAllClasses = ({ classes }) => {
             <h6 className='text-xl'>Coach : {coach}</h6>
             <p className='my-1'>Available Seat :  {available_seats}</p>
             <p >Price : <span className='text-yellow-600 font-semibold'>${price}</span></p>
-            <button onClick={() => handleSelect(classes)} disabled={available_seats == 0 ? true : false || disabled} className=' btn btn-ghost mt-3 btn-sm normal-case border border-black'>Select</button>
+            <button onClick={() => handleSelect(classes)} disabled={available_seats == 0 ? true : false || disabled} className=' btn btn-ghost mt-3 btn-sm normal-case border border-black'>
+                Select
+                <ToastContainer
+                    position="top-right"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
+                {/* Same as */}
+                <ToastContainer />
+
+            </button>
         </div>
     );
 };

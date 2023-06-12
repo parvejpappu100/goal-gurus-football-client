@@ -2,11 +2,43 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import useCart from '../../../../hooks/useCart';
 import { FaTrashAlt } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 
 const MyCart = () => {
 
-    const [cart , refetch] = useCart();
+    const [cart, refetch] = useCart();
+
+    const handleDelete = classes => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/carts/${classes._id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+
+            }
+        })
+    }
 
     return (
         <div>
@@ -49,7 +81,7 @@ const MyCart = () => {
                                         <td className='text-yellow-600 font-semibold text-xl'>$ {selectedClass.price}
                                         </td>
                                         <td>
-                                            <button className="btn bg-red-700 border-none h-10 w-10 btn-xs text-white hover:bg-black">
+                                            <button onClick={() => handleDelete(selectedClass)} className="btn bg-red-700 border-none h-10 w-10 btn-xs text-white hover:bg-black">
                                                 <FaTrashAlt></FaTrashAlt>
                                             </button>
                                         </td>
