@@ -33,7 +33,7 @@ const ShowAllClasses = ({ classes }) => {
                     if (data.insertedId) {
                         refetch();
                         toast.success("Class Selected", {
-                            position: "top-right",
+                            position: "top-center",
                             autoClose: 2000,
                             hideProgressBar: false,
                             closeOnClick: true,
@@ -72,7 +72,7 @@ const ShowAllClasses = ({ classes }) => {
             <button onClick={() => handleSelect(classes)} disabled={available_seats == 0 || isExits ? true : false} className=' btn btn-ghost mt-3 btn-sm normal-case border border-black'>
                 Select
                 <ToastContainer
-                    position="top-right"
+                    position="top-center"
                     autoClose={2000}
                     hideProgressBar={false}
                     newestOnTop={false}

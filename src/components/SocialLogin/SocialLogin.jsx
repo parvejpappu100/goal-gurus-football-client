@@ -15,21 +15,35 @@ const SocialLogin = () => {
 
     const handleGoogleLogin = () => {
         googleSingIn()
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-            Swal.fire({
-                position: 'top',
-                icon: 'success',
-                title: 'User Login Successfully',
-                showConfirmButton: false,
-                timer: 1500
+            .then(result => {
+                const user = result.user;
+                const savedUser = {name : user.displayName , email: user.email}
+                fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            navigate(from, { replace: true });
+                            Swal.fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: 'User Create Successfully',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+                    })
+
+                navigate(from, { replace: true })
             })
-            navigate(from , {replace: true})
-        })
-        .catch(error => {
-            console.log(error.message)
-        })
+            .catch(error => {
+                console.log(error.message)
+            })
     }
 
     return (

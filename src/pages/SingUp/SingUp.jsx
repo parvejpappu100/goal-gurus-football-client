@@ -46,16 +46,9 @@ const SingUp = () => {
                         createUser(data.email, data.password)
                             .then(result => {
                                 const user = result.user;
-                                updateUserData(user, data.name, imgURL)
+                                updateUserData(user, data.name, imgURL, data.email)
                                 setSingUpError("");
-                                navigate(from , {replace: true});
-                                Swal.fire({
-                                    position: 'top',
-                                    icon: 'success',
-                                    title: 'User Create Successfully',
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
+
                             })
                             .catch(error => {
                                 setSingUpError(error.message)
@@ -69,13 +62,34 @@ const SingUp = () => {
             })
     }
 
-    const updateUserData = (user, name, photoUrl) => {
+    const updateUserData = (user, name, photoUrl, email) => {
         updateProfile(user, {
             displayName: name,
             photoURL: photoUrl
         })
             .then(() => {
+                const savedUser = { name: name, email: email }
 
+                fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(savedUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            navigate(from, { replace: true });
+                            Swal.fire({
+                                position: 'top',
+                                icon: 'success',
+                                title: 'User Create Successfully',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+                    })
             })
             .catch(error => {
 

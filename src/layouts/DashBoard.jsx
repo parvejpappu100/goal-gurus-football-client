@@ -63,10 +63,10 @@ const DashBoard = () => {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link>Classes</Link>
+                            <Link to="/allClass">Classes</Link>
                         </li>
                         <li>
-                            <Link>Coaches</Link>
+                            <Link to="/coaches">Coaches</Link>
                         </li>
                     </ul>
                 </div>
