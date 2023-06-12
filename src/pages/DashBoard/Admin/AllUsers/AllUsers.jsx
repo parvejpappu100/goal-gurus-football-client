@@ -12,7 +12,7 @@ const AllUsers = () => {
     });
 
     const handleMakeAdmin = (id) => {
-        const updatedRole = {role: "admin"};
+        const updatedRole = { role: "admin" };
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -44,6 +44,40 @@ const AllUsers = () => {
             }
         })
 
+    };
+
+    const handleMakeCoach = id => {
+        const updatedRole = { role: "coach" };
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, do it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/users/${id}`, {
+                    method: "PUT",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(updatedRole)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.modifiedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Success!',
+                                'Make users Coach successfully.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
     }
 
     return (
@@ -102,7 +136,7 @@ const AllUsers = () => {
                                                 </button>
                                             }
                                             {
-                                                user.role === "coach" ? "Coach" : <button className="btn normal-case btn-xs text-[12px]">
+                                                user.role === "coach" ? "Coach" : <button onClick={() => handleMakeCoach(user._id)} className="btn normal-case btn-xs text-[12px]">
                                                     Make Coach
                                                 </button>
                                             }
