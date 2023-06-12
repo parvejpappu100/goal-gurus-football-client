@@ -11,7 +11,7 @@ const AllUsers = () => {
         return res.json();
     });
 
-    const handleMakeAdmin = (id) => {
+    const handleMakeAdmin = (user) => {
         const updatedRole = { role: "admin" };
         Swal.fire({
             title: 'Are you sure?',
@@ -23,7 +23,7 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, do it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${id}`, {
+                fetch(`http://localhost:5000/users/${user._id}`, {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"
@@ -36,7 +36,7 @@ const AllUsers = () => {
                             refetch();
                             Swal.fire(
                                 'Success!',
-                                'Make users Admin successfully.',
+                                `${user.name} is Admin Now `,
                                 'success'
                             )
                         }
@@ -46,7 +46,7 @@ const AllUsers = () => {
 
     };
 
-    const handleMakeCoach = id => {
+    const handleMakeCoach = user => {
         const updatedRole = { role: "coach" };
         Swal.fire({
             title: 'Are you sure?',
@@ -58,7 +58,7 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, do it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${id}`, {
+                fetch(`http://localhost:5000/users/${user._id}`, {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"
@@ -71,7 +71,7 @@ const AllUsers = () => {
                             refetch();
                             Swal.fire(
                                 'Success!',
-                                'Make users Coach successfully.',
+                                `${user.name} is Coach Now`,
                                 'success'
                             )
                         }
@@ -131,12 +131,12 @@ const AllUsers = () => {
                                         } */}
                                         <div className='flex gap-5'>
                                             {
-                                                user.role === "admin" ? "Admin" : <button onClick={() => handleMakeAdmin(user._id)} className="btn normal-case btn-xs text-[12px]">
+                                                user.role === "admin" ? "Admin" : <button onClick={() => handleMakeAdmin(user)} className="btn normal-case btn-xs text-[12px]">
                                                     Make Admin
                                                 </button>
                                             }
                                             {
-                                                user.role === "coach" ? "Coach" : <button onClick={() => handleMakeCoach(user._id)} className="btn normal-case btn-xs text-[12px]">
+                                                user.role === "coach" ? "Coach" : <button onClick={() => handleMakeCoach(user)} className="btn normal-case btn-xs text-[12px]">
                                                     Make Coach
                                                 </button>
                                             }
