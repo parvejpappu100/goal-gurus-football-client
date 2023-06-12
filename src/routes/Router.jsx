@@ -5,6 +5,9 @@ import Classes from "../pages/Classes/Classes";
 import Login from "../pages/Login/Login";
 import SingUp from "../pages/SingUp/SingUp";
 import Coaches from "../pages/Coaches/Coaches";
+import DashBoard from "../layouts/DashBoard";
+import PrivateRoutes from "./PrivateRoutes";
+import MyCart from "../pages/DashBoard/Students/MyCart/MyCart";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +36,16 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: "/dashBoard",
+        element : <PrivateRoutes><DashBoard></DashBoard></PrivateRoutes>,
+        children: [
+            {
+                path: "myCart",
+                element: <MyCart></MyCart>
+            }
+        ]
+    }
 ]);
 
 export default router;
