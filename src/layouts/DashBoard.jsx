@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useCart from '../hooks/useCart';
 import { FaArrowAltCircleDown, FaBars, FaBook, FaCalendarAlt, FaCartArrowDown, FaHome, FaSquareFull, FaUsers, FaWallet } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 const DashBoard = () => {
 
@@ -13,6 +14,9 @@ const DashBoard = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Dashboard | GoalGurus Football Academy</title>
+            </Helmet>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content relative">

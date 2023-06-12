@@ -12,7 +12,7 @@ const MyCart = () => {
         <div>
             <div className='md:container mx-auto my-5'>
                 <Helmet>
-                    <title>Bistro Boss | My Cart</title>
+                    <title>My Selected Class | Dashboard</title>
                 </Helmet>
                 <div className='bg-white p-5 w-full'>
                     <div className="overflow-x-auto w-full">
