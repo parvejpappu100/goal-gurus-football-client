@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAdmin from '../../hooks/useAdmin';
 import useCoach from '../../hooks/useCoach';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const ShowAllClasses = ({ classes }) => {
     const { name, image, available_seats, coach, price, _id } = classes;
@@ -14,6 +15,8 @@ const ShowAllClasses = ({ classes }) => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
+
+    const [axiosSecure] = useAxiosSecure();
 
     const [cart, refetch] = useCart();
     const [isAdmin] = useAdmin();
@@ -24,17 +27,9 @@ const ShowAllClasses = ({ classes }) => {
     const handleSelect = (classes) => {
         if (user && user.email) {
             const selectedClass = { name, image, coach, price, classId: _id, email: user.email }
-            fetch("http://localhost:5000/carts", {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify(selectedClass)
-            })
-                .then(res => res.json())
+            axiosSecure.post("/carts", selectedClass)
                 .then(data => {
-                    console.log(data)
-                    if (data.insertedId) {
+                    if (data.data.insertedId) {
                         refetch();
                         toast.success("Class Selected", {
                             position: "top-center",

@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 
@@ -15,6 +16,8 @@ const AddClass = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const img_hosting_Url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
+
+    const [axiosSecure] = useAxiosSecure();
 
     const onSubmit = data => {
         const formData = new FormData();
@@ -29,16 +32,9 @@ const AddClass = () => {
                 if (imgResponse.success) {
                     const imgURL = imgResponse.data.display_url;
                     const newClass = { name: data.name, image: imgURL, price: data.price, available_seats: data.seat, enrolled_students: 0, coach: user.displayName, email: user.email , status: "Pending"};
-                    fetch("http://localhost:5000/classes", {
-                        method: "POST",
-                        headers: {
-                            "content-type": "application/json"
-                        },
-                        body: JSON.stringify(newClass)
-                    })
-                        .then(res => res.json())
+                    axiosSecure.post("/classes", newClass)
                         .then(data => {
-                            if (data.insertedId) {
+                            if (data.data.insertedId) {
                                 navigate("/dashboard/myClasses")
                                 Swal.fire(
                                     'Good job!',

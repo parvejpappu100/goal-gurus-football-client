@@ -12,7 +12,7 @@ const ManageClasses = () => {
     const [axiosSecure] = useAxiosSecure();
 
     const { data: classes = [], refetch } = useQuery(["classes"], async () => {
-        const res = await axiosSecure.get("/classes")
+        const res = await axiosSecure.get("/classes");
         return res.data;
     });
 
@@ -20,16 +20,9 @@ const ManageClasses = () => {
 
     const handleApprovedClass = (newClass) => {
         const updatedStatus = { status: "approved" };
-        fetch(`http://localhost:5000/classes/${newClass._id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(updatedStatus)
-        })
-            .then(res => res.json())
+        axiosSecure.put(`classes/${newClass._id}`,updatedStatus)
             .then(data => {
-                if (data.modifiedCount > 0) {
+                if (data.data.modifiedCount > 0) {
                     refetch();
                     Swal.fire({
                         position: 'top',
@@ -97,16 +90,9 @@ const ManageClasses = () => {
 
     const handleSendFeedback = (newClass) => {
         const setFeedback = { feedback: feedback };
-        fetch(`http://localhost:5000/classes/feedback/${newClass._id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(setFeedback)
-        })
-            .then(res => res.json())
+        axiosSecure.put(`classes/feedback/${newClass._id}`, setFeedback)
             .then(data => {
-                if (data.modifiedCount > 0) {
+                if (data.data.modifiedCount > 0) {
                     refetch();
                     Swal.fire({
                         position: 'top',
@@ -137,7 +123,7 @@ const ManageClasses = () => {
                                 <th className='bg-[#F5E1DA] text-xl'>Class Name</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Coach Name</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Coach Email</th>
-                                <th className='bg-[#F5E1DA] text-xl'>Coach Price</th>
+                                <th className='bg-[#F5E1DA] text-xl'>Price</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Available Seat</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Status</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Feedback</th>

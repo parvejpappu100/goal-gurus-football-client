@@ -3,11 +3,13 @@ import { Helmet } from 'react-helmet-async';
 import useCart from '../../../../hooks/useCart';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 
 const MyCart = () => {
 
     const [cart, refetch] = useCart();
+    const [axiosSecure] = useAxiosSecure();
 
     const handleDelete = classes => {
         Swal.fire({
@@ -20,13 +22,9 @@ const MyCart = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/carts/${classes._id}`, {
-                    method: "DELETE"
-                })
-                    .then(res => res.json())
+                axiosSecure.delete(`carts/${classes._id}`)
                     .then(data => {
-                        console.log(data)
-                        if (data.deletedCount > 0) {
+                        if (data.data.deletedCount > 0) {
                             refetch();
                             Swal.fire(
                                 'Deleted!',

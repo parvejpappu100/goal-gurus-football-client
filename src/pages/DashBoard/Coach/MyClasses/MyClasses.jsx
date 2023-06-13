@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import useAuth from '../../../../hooks/useAuth';
-import { FaEdit} from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { useQuery } from 'react-query';
 
 const MyClasses = () => {
 
     const { user } = useAuth();
 
-    const [myClasses, setMyClasses] = useState([]);
-    console.log(myClasses)
+    const [axiosSecure] = useAxiosSecure();
 
-    const url = `http://localhost:5000/myClasses?email=${user?.email}`;
-
-    useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setMyClasses(data))
-    }, [])
+    const { data: myClasses = [] } = useQuery(["myClasses"], async () => {
+        const res = await axiosSecure.get(`/myClasses?email=${user?.email}`)
+        return res.data;
+    });
 
     return (
         <div className='md:container mx-auto'>
@@ -33,6 +31,7 @@ const MyClasses = () => {
                                 <th className='bg-[#F5E1DA] text-xl'>Class Image</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Class Name</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Price</th>
+                                <th className='bg-[#F5E1DA] text-xl'>Enrolled</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Status</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Feedback</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Update</th>
@@ -58,11 +57,14 @@ const MyClasses = () => {
                                     </td>
                                     <td className='text-yellow-600 font-semibold text-xl'>$ {myClass.price}
                                     </td>
+                                    <td className='text-center font-semibold'>
+                                        {myClass.enrolled_students}
+                                    </td>
                                     <td className='flex gap-3'>
                                         <button disabled={myClass.status !== "Pending" ? true : false} className="btn bg-[#f3b7a1] border-none h-10  btn-xs normal-case font-bold text-[12px]">
                                             Pending
                                         </button>
-                                        <button disabled={myClass.status !== "denied" ? true : false}  className="btn bg-[#f3b7a1] border-none h-10  btn-xs normal-case font-bold text-[12px]">
+                                        <button disabled={myClass.status !== "denied" ? true : false} className="btn bg-[#f3b7a1] border-none h-10  btn-xs normal-case font-bold text-[12px]">
                                             Denied
                                         </button>
                                         <button disabled={myClass.status !== "approved" ? true : false} className="btn bg-[#f3b7a1] border-none h-10  btn-xs normal-case font-bold text-[12px]">

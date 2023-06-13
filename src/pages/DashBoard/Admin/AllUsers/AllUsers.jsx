@@ -26,16 +26,9 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, do it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${user._id}`, {
-                    method: "PUT",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify(updatedRole)
-                })
-                    .then(res => res.json())
+                axiosSecure.put(`/users/${user._id}`, updatedRole)
                     .then(data => {
-                        if (data.modifiedCount > 0) {
+                        if (data.data.modifiedCount > 0) {
                             refetch();
                             Swal.fire(
                                 'Success!',
@@ -61,16 +54,9 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, do it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${user._id}`, {
-                    method: "PUT",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify(updatedRole)
-                })
-                    .then(res => res.json())
+                axiosSecure.put(`/users/${user._id}`, updatedRole)
                     .then(data => {
-                        if (data.modifiedCount > 0) {
+                        if (data.data.modifiedCount > 0) {
                             refetch();
                             Swal.fire(
                                 'Success!',

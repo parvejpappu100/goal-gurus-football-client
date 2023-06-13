@@ -13,6 +13,7 @@ import AdminRoute from "./AdminRoute";
 import ManageClasses from "../pages/DashBoard/Admin/ManageClasses/ManageClasses";
 import AddClass from "../pages/DashBoard/Coach/AddClass/AddClass";
 import MyClasses from "../pages/DashBoard/Coach/MyClasses/MyClasses";
+import CoachRoute from "./CoachRoute";
 
 const router = createBrowserRouter([
     {
@@ -59,11 +60,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "addClass",
-                element: <AddClass></AddClass>
+                element: <CoachRoute><AddClass></AddClass></CoachRoute>
             },
             {
                 path: "myClasses",
-                element: <MyClasses></MyClasses>
+                element: <CoachRoute><MyClasses></MyClasses></CoachRoute>
             }
         ]
     }
