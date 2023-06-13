@@ -5,6 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useAdmin from '../../hooks/useAdmin';
+import useCoach from '../../hooks/useCoach';
 
 const ShowAllClasses = ({ classes }) => {
     const { name, image, available_seats, coach, price, _id } = classes;
@@ -14,6 +16,8 @@ const ShowAllClasses = ({ classes }) => {
     const location = useLocation();
 
     const [cart, refetch] = useCart();
+    const [isAdmin] = useAdmin();
+    const [isCoach] = useCoach();
 
     const isExits = cart.find(ct => ct.classId == _id);
     
@@ -69,7 +73,7 @@ const ShowAllClasses = ({ classes }) => {
             <h6 className='text-xl'>Coach : {coach}</h6>
             <p className='my-1'>Available Seat :  {available_seats}</p>
             <p >Price : <span className='text-yellow-600 font-semibold'>${price}</span></p>
-            <button onClick={() => handleSelect(classes)} disabled={available_seats == 0 || isExits ? true : false} className=' btn btn-ghost mt-3 btn-sm normal-case border border-black'>
+            <button onClick={() => handleSelect(classes)} disabled={available_seats == 0 || isExits || isAdmin || isCoach ? true : false} className=' btn btn-ghost mt-3 btn-sm normal-case border border-black'>
                 Select
                 <ToastContainer
                     position="top-center"
