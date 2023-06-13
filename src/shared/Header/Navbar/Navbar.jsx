@@ -15,7 +15,7 @@ const Navbar = () => {
     const [cart] = useCart();
     const [isAdmin] = useAdmin();
     const [isCoach] = useCoach();
-
+   
     const handleLogout = () => {
         logOut()
             .then(result => {
@@ -45,13 +45,13 @@ const Navbar = () => {
         </li>
         <li>
             {
-                !isAdmin || !isCoach && <Link to="/dashboard/myCart">
+                isAdmin == false & isCoach == false ? <Link to="/dashboard/myCart">
                     <div className='indicator'>
                         <span className="indicator-item badge indicator-bottom border-none bg-black text-white">+{cart?.length || 0}</span>
                         <FaShoppingCart className='text-xl text-white  bg-green-700 rounded-full h-8 w-8 p-1'>
                         </FaShoppingCart>
                     </div>
-                </Link>
+                </Link> : ""
             }
         </li>
         <li>

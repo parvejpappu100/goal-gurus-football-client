@@ -16,8 +16,6 @@ const DashBoard = () => {
 
     const [isAdmin] = useAdmin();
     const [isCoach] = useCoach();
-    console.log(isCoach);
-    console.log(isAdmin)
 
     return (
         <div>
