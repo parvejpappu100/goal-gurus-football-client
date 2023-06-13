@@ -49,7 +49,7 @@ const DashBoard = () => {
                                     <Link to="/dashboard/addClass"><FaArrowAltCircleDown></FaArrowAltCircleDown>Add Class</Link>
                                 </li>
                                 <li>
-                                    <Link to="/dashboard/myClasses"><FaWallet></FaWallet>My Class</Link>
+                                    <Link to="/dashboard/myClasses"><FaWallet></FaWallet>My Classes</Link>
                                 </li>
                             </> || <>
                                 <li>
