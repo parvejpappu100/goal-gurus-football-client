@@ -3,14 +3,17 @@ import { Link, Outlet } from 'react-router-dom';
 import useCart from '../hooks/useCart';
 import { FaArrowAltCircleDown, FaBars, FaBook, FaCalendarAlt, FaCartArrowDown, FaHome, FaSquareFull, FaUsers, FaWallet } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
+import useAdmin from '../hooks/useAdmin';
 
 const DashBoard = () => {
 
     const [cart] = useCart();
 
     // * TODO: load data from the server to have dynamic isAdmin based on data:
-    const isAdmin = true;
+    // const isAdmin = true;
     const isCoach = false;
+
+    const [isAdmin] = useAdmin();
 
     return (
         <div>
@@ -34,7 +37,7 @@ const DashBoard = () => {
                         {
                             isAdmin && <>
                                 <li>
-                                    <Link><FaSquareFull></FaSquareFull>Manage Classes</Link>
+                                    <Link to="/dashboard/manageClasses"><FaSquareFull></FaSquareFull>Manage Classes</Link>
                                 </li>
                                 <li>
                                     <Link to="/dashboard/allUsers"><FaUsers></FaUsers>Manage Users</Link>

@@ -9,6 +9,8 @@ import DashBoard from "../layouts/DashBoard";
 import PrivateRoutes from "./PrivateRoutes";
 import MyCart from "../pages/DashBoard/Students/MyCart/MyCart";
 import AllUsers from "../pages/DashBoard/Admin/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoute";
+import ManageClasses from "../pages/DashBoard/Admin/ManageClasses/ManageClasses";
 
 const router = createBrowserRouter([
     {
@@ -47,7 +49,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "allUsers",
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path: 'manageClasses',
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             }
         ]
     }
