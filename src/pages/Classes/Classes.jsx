@@ -19,6 +19,8 @@ const Classes = () => {
         setShowAll(true);
     };
 
+    const approvedClasses = allClasses.filter(allClass => allClass?.status !== "Pending" && allClass?.status !== "denied");
+
     return (
         <div>
             <Helmet>
@@ -33,7 +35,7 @@ const Classes = () => {
                 <h3 className='text-4xl px-5 lg:px-0'>Our All Classes</h3>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-20'>
                     {
-                        allClasses.slice(0, showAll ? allClasses.length : 8).map(classes => <ShowAllClasses
+                        approvedClasses.slice(0, showAll ? allClasses.length : 8).map(classes => <ShowAllClasses
                             key={classes._id}
                             classes={classes}
                         ></ShowAllClasses>)

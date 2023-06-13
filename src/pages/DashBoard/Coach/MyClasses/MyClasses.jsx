@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import useAuth from '../../../../hooks/useAuth';
-import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+import { FaEdit} from 'react-icons/fa';
 
 const MyClasses = () => {
 
