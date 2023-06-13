@@ -3,12 +3,14 @@ import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../../hooks/useAuth';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 
 const AddClass = () => {
 
     const { user } = useAuth();
+    const navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -37,6 +39,7 @@ const AddClass = () => {
                         .then(res => res.json())
                         .then(data => {
                             if (data.insertedId) {
+                                navigate("/dashboard/myClasses")
                                 Swal.fire(
                                     'Good job!',
                                     'Class added successfully!',

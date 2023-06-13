@@ -127,11 +127,6 @@ const AllUsers = () => {
                                         {user.email}
                                     </td>
                                     <td>
-                                        {/* {
-                                            user.role === "admin" ? "Admin" : <button onClick={() => handleMakeAdmin(user)} className="btn bg-[#F5E1DA] text-2xl border-none h-10 w-10 btn-xs">
-                                                <FaUsers></FaUsers>
-                                            </button>
-                                        } */}
                                         <div className='flex gap-5'>
                                             {
                                                 user.role === "admin" ? "Admin" : <button onClick={() => handleMakeAdmin(user)} className="btn normal-case btn-xs text-[12px]">

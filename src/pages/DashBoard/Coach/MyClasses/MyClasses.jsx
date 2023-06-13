@@ -34,6 +34,7 @@ const MyClasses = () => {
                                 <th className='bg-[#F5E1DA] text-xl'>Class Name</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Price</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Status</th>
+                                <th className='bg-[#F5E1DA] text-xl'>Feedback</th>
                                 <th className='bg-[#F5E1DA] text-xl'>Update</th>
                             </tr>
                         </thead>
@@ -58,15 +59,18 @@ const MyClasses = () => {
                                     <td className='text-yellow-600 font-semibold text-xl'>$ {myClass.price}
                                     </td>
                                     <td className='flex gap-3'>
-                                        <button className="btn bg-[#f3b7a1] border-none h-10  btn-xs normal-case font-bold text-[12px]">
+                                        <button disabled={myClass.status !== "Pending" ? true : false} className="btn bg-[#f3b7a1] border-none h-10  btn-xs normal-case font-bold text-[12px]">
                                             Pending
                                         </button>
-                                        <button disabled className="btn bg-[#f3b7a1] border-none h-10  btn-xs normal-case font-bold text-[12px]">
+                                        <button disabled={myClass.status !== "denied" ? true : false}  className="btn bg-[#f3b7a1] border-none h-10  btn-xs normal-case font-bold text-[12px]">
                                             Denied
                                         </button>
-                                        <button disabled className="btn bg-[#f3b7a1] border-none h-10  btn-xs normal-case font-bold text-[12px]">
+                                        <button disabled={myClass.status !== "approved" ? true : false} className="btn bg-[#f3b7a1] border-none h-10  btn-xs normal-case font-bold text-[12px]">
                                             Approved
                                         </button>
+                                    </td>
+                                    <td>
+                                        {myClass.feedback ? myClass.feedback : "No Feedback"}
                                     </td>
                                     <td>
                                         <button className="btn bg-[#f3b7a1] border-none h-10 w-10 btn-xs text-base normal-case font-bold">

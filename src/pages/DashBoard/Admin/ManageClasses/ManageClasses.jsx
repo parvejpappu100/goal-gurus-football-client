@@ -4,6 +4,8 @@ import { FaEdit } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { useQuery } from 'react-query';
+import Modal from 'react-modal';
+
 
 const ManageClasses = () => {
 
@@ -16,9 +18,9 @@ const ManageClasses = () => {
 
     const newClasses = classes.filter(allClass => allClass?.status == "Pending" || allClass?.status == "denied" || allClass?.status == "approved");
 
-    const handleApprovedClass = (newClasses) => {
+    const handleApprovedClass = (newClass) => {
         const updatedStatus = { status: "approved" };
-        fetch(`http://localhost:5000/classes/${newClasses._id}`, {
+        fetch(`http://localhost:5000/classes/${newClass._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -41,9 +43,9 @@ const ManageClasses = () => {
             })
     }
 
-    const handleDeniedClass = (newClasses) => {
+    const handleDeniedClass = (newClass) => {
         const updatedStatus = { status: "denied" };
-        fetch(`http://localhost:5000/classes/${newClasses._id}`, {
+        fetch(`http://localhost:5000/classes/${newClass._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -65,6 +67,59 @@ const ManageClasses = () => {
                 }
             })
     }
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [feedback, setFeedback] = useState('');
+    const [feedbackClassId, setFeedbackClassId] = useState([]);
+
+    const handleOpenModal = (newClass) => {
+        setFeedbackClassId(newClass)
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false); // Close the modal
+    };
+
+    const handleFeedbackChange = (e) => {
+        setFeedback(e.target.value);
+    };
+    const modalStyles = {
+        content: {
+            height: '400px',
+            width: '600px',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            padding: '20px',
+        },
+    };
+
+    const handleSendFeedback = (newClass) => {
+        const setFeedback = { feedback: feedback };
+        fetch(`http://localhost:5000/classes/feedback/${newClass._id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(setFeedback)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: 'Feedback Sent !',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+
+                }
+            })
+        handleCloseModal();
+    };
 
     return (
         <div className='md:container mx-auto'>
@@ -116,14 +171,14 @@ const ManageClasses = () => {
                                     </td>
                                     <td className='flex gap-3 mt-4'>
                                         <button disabled={newClass.status == "approved" || newClass.status == "denied" ? true : false} onClick={() => handleApprovedClass(newClass)} className="btn bg-[#f3b7a1] border-none   btn-xs normal-case font-bold text-[12px]">
-                                            Approved
+                                            {newClass.status == "approved" ? "Approved" : "Approve"}
                                         </button>
                                         <button disabled={newClass.status == "approved" || newClass.status == "denied" ? true : false} onClick={() => handleDeniedClass(newClass)} className="btn bg-[#f3b7a1] border-none   btn-xs normal-case font-bold text-[12px]">
-                                            Denied
+                                            {newClass.status == "denied" ? "Denied" : "Deny"}
                                         </button>
                                     </td>
                                     <td>
-                                        <button className="btn bg-[#f3b7a1] border-none   btn-xs  normal-case font-bold text-[12px]">
+                                        <button onClick={() => handleOpenModal(newClass)} className="btn bg-[#f3b7a1] border-none   btn-xs  normal-case font-bold text-[12px]">
                                             Feedback
                                         </button>
                                     </td>
@@ -131,6 +186,22 @@ const ManageClasses = () => {
                             }
                         </tbody>
                     </table>
+                    <Modal
+                        isOpen={isModalOpen}
+                        onRequestClose={handleCloseModal}
+                        contentLabel="Feedback Modal"
+                        style={modalStyles}
+                    >
+                        <h2 className='text-xl text-center'>Feedback</h2>
+                        <textarea
+                            value={feedback}
+                            onChange={handleFeedbackChange}
+                            className='border w-full my-10 h-1/2 p-4 text-xl'
+                        />
+                        <div className='flex justify-end'>
+                            <button className='btn normal-case bg-[#f3b7a1] ' onClick={() => handleSendFeedback(feedbackClassId)}>Send Feedback</button>
+                        </div>
+                    </Modal>
                 </div>
             </div>
         </div>
