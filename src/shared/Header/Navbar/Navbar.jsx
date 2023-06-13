@@ -5,6 +5,7 @@ import { FaShoppingCart, FaUserCircle } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useCart from '../../../hooks/useCart';
 import useAdmin from '../../../hooks/useAdmin';
+import useCoach from '../../../hooks/useCoach';
 
 
 
@@ -13,6 +14,7 @@ const Navbar = () => {
     const { user, logOut } = useAuth();
     const [cart] = useCart();
     const [isAdmin] = useAdmin();
+    const [isCoach] = useCoach();
 
     const handleLogout = () => {
         logOut()
@@ -43,7 +45,7 @@ const Navbar = () => {
         </li>
         <li>
             {
-                !isAdmin && <Link to="/dashboard/myCart">
+                !isAdmin || !isCoach && <Link to="/dashboard/myCart">
                     <div className='indicator'>
                         <span className="indicator-item badge indicator-bottom border-none bg-black text-white">+{cart?.length || 0}</span>
                         <FaShoppingCart className='text-xl text-white  bg-green-700 rounded-full h-8 w-8 p-1'>

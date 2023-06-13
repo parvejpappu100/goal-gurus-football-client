@@ -4,6 +4,7 @@ import useCart from '../hooks/useCart';
 import { FaArrowAltCircleDown, FaBars, FaBook, FaCalendarAlt, FaCartArrowDown, FaHome, FaSquareFull, FaUsers, FaWallet } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
 import useAdmin from '../hooks/useAdmin';
+import useCoach from '../hooks/useCoach';
 
 const DashBoard = () => {
 
@@ -11,9 +12,12 @@ const DashBoard = () => {
 
     // * TODO: load data from the server to have dynamic isAdmin based on data:
     // const isAdmin = true;
-    const isCoach = false;
+    // const isCoach = true;
 
     const [isAdmin] = useAdmin();
+    const [isCoach] = useCoach();
+    console.log(isCoach);
+    console.log(isAdmin)
 
     return (
         <div>
@@ -44,10 +48,10 @@ const DashBoard = () => {
                                 </li>
                             </> || isCoach && <>
                                 <li>
-                                    <Link><FaArrowAltCircleDown></FaArrowAltCircleDown>Add Class</Link>
+                                    <Link to="/dashboard/addClass"><FaArrowAltCircleDown></FaArrowAltCircleDown>Add Class</Link>
                                 </li>
                                 <li>
-                                    <Link><FaWallet></FaWallet>My Class</Link>
+                                    <Link to="/dashboard/myClasses"><FaWallet></FaWallet>My Class</Link>
                                 </li>
                             </> || <>
                                 <li>
