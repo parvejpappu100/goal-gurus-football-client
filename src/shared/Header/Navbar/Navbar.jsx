@@ -15,7 +15,7 @@ const Navbar = () => {
     const [cart] = useCart();
     const [isAdmin] = useAdmin();
     const [isCoach] = useCoach();
-   
+
     const handleLogout = () => {
         logOut()
             .then(result => {
@@ -83,9 +83,13 @@ const Navbar = () => {
                         {navOptions}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-white  normal-case"><small>
-                    GoalGurus<br />FOOTBALL<br />ACADEMY
-                </small></a>
+                <div className='flex'>
+                    <img className='h-[50px]' src="https://i.ibb.co/g3LTw4b/NA22.png" alt="" />
+                    <a className="btn btn-ghost text-white  normal-case"><small>
+                        GoalGurus<br />FOOTBALL<br />ACADEMY
+                    </small></a>
+
+                </div>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 uppercase items-center">
