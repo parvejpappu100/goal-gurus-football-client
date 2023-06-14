@@ -56,10 +56,10 @@ const DashBoard = () => {
                                     <Link to="/dashBoard/myCart"><FaCartArrowDown></FaCartArrowDown> My Selected Classes <span className=" badge badge-secondary">+{cart.length || 0}</span></Link>
                                 </li>
                                 <li>
-                                    <Link><FaCalendarAlt></FaCalendarAlt>My Enrolled Classes</Link>
+                                    <Link to="/dashboard/enrolledClasses"><FaCalendarAlt></FaCalendarAlt>My Enrolled Classes</Link>
                                 </li>
                                 <li>
-                                    <Link><FaWallet></FaWallet> Payment History</Link>
+                                    <Link to="/dashboard/paymentHistory"><FaWallet></FaWallet> Payment History</Link>
                                 </li>
                             </>
                         }

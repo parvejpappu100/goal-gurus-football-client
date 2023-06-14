@@ -5,6 +5,7 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import useAuth from '../../../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import useCart from '../../../../hooks/useCart';
+import { useNavigate } from 'react-router-dom';
 
 
 const CheckOutForm = ({ price, name, classId }) => {
@@ -19,6 +20,7 @@ const CheckOutForm = ({ price, name, classId }) => {
     const [clientSecret, setClientSecret] = useState("");
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (price > 0) {
@@ -81,7 +83,7 @@ const CheckOutForm = ({ price, name, classId }) => {
         if (paymentIntent.status === "succeeded") {
             const transactionId = paymentIntent.id;
             setTransactionId(transactionId);
-
+            navigate("/dashboard/paymentHistory")
             const payment = {
                 email: user?.email,
                 transactionId,
@@ -95,6 +97,7 @@ const CheckOutForm = ({ price, name, classId }) => {
                 .then(res => {
                     if (res.data.insertResult.insertedId && res.data.deletedResult.deletedCount) {
                         refetch();
+
                         Swal.fire({
                             position: 'top',
                             icon: 'success',
@@ -104,9 +107,7 @@ const CheckOutForm = ({ price, name, classId }) => {
                         })
                     }
                 })
-
         }
-
 
     }
 

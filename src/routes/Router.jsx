@@ -15,6 +15,8 @@ import AddClass from "../pages/DashBoard/Coach/AddClass/AddClass";
 import MyClasses from "../pages/DashBoard/Coach/MyClasses/MyClasses";
 import CoachRoute from "./CoachRoute";
 import Payment from "../pages/DashBoard/Students/Payment/Payment";
+import EnrolledClass from "../pages/DashBoard/Students/EnrolledClasses/EnrolledClass";
+import PaymentsHistory from "../pages/DashBoard/Students/PaymentsHistory/PaymentsHistory";
 
 const router = createBrowserRouter([
     {
@@ -45,7 +47,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashBoard",
-        element : <PrivateRoutes><DashBoard></DashBoard></PrivateRoutes>,
+        element: <PrivateRoutes><DashBoard></DashBoard></PrivateRoutes>,
         children: [
             {
                 path: "myCart",
@@ -54,6 +56,14 @@ const router = createBrowserRouter([
             {
                 path: "payment",
                 element: <Payment></Payment>
+            },
+            {
+                path: "enrolledClasses",
+                element: <EnrolledClass></EnrolledClass>
+            }, 
+            {
+                path: "paymentHistory",
+                element: <PaymentsHistory></PaymentsHistory>
             },
             // * Admin routes:
             {
