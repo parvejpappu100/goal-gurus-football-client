@@ -3,3 +3,14 @@
     /* font-family: 'Rancho', cursive; */
     font-family: 'Work Sans', sans-serif;
 }
+
+.carousel {
+    display: flex;
+    justify-content: center;
+}
+  
+  
+.carousel div img {
+    display: block;
+    margin: 0 auto;
+}

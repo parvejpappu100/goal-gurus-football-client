@@ -85,7 +85,7 @@ const MyCart = () => {
                                             </button>
                                         </td>
                                         <td>
-                                            <Link to="/dashboard/payment" state={{price: selectedClass.price , name: selectedClass.name , classId: selectedClass.classId}}>
+                                            <Link to="/dashboard/payment" state={{price: selectedClass.price , name: selectedClass.name , classId: selectedClass.classId , available_seat: selectedClass.available_seats , enrolled_seat: selectedClass.enrolled_students , _id: selectedClass._id}}>
                                                 <button className="btn bg-[#f3b7a1] border-none h-10 w-10 btn-xs normal-case font-bold">
                                                     Pay
                                                 </button>

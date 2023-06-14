@@ -8,7 +8,11 @@ import useCart from '../../../../hooks/useCart';
 import { useNavigate } from 'react-router-dom';
 
 
-const CheckOutForm = ({ price, name, classId }) => {
+const CheckOutForm = ({ price, name, classId , data }) => {
+    const {available_seat , enrolled_seat , _id} = data;
+    const available_seatInt = parseInt(available_seat);
+    const enrolled_seatInt = parseInt(enrolled_seat);
+    console.log(available_seatInt , enrolled_seatInt , _id);
 
     const stripe = useStripe();
     const [axiosSecure] = useAxiosSecure();
@@ -97,6 +101,11 @@ const CheckOutForm = ({ price, name, classId }) => {
                 .then(res => {
                     if (res.data.insertResult.insertedId && res.data.deletedResult.deletedCount) {
                         refetch();
+                        // const updatedSeat = {enrolled_students : enrolled_seatInt + 1 , available_seats: available_seatInt - 1}
+                        // axiosSecure.put(`/classes/seat/${_id}` , updatedSeat)
+                        // .then(res => {
+                        //     console.log(res.data)
+                        // })
 
                         Swal.fire({
                             position: 'top',

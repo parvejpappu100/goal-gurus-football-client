@@ -18,6 +18,7 @@ const Payment = () => {
     const price = parseFloat(priceString); 
     const name = data.name;
     const classId = data.classId;
+    console.log(data);
 
     return (
         <div className='md:container mx-auto my-20'>
@@ -27,7 +28,7 @@ const Payment = () => {
             <h4 className='text-3xl text-center font-family'>Pay Now</h4>
             <div className='max-w-3xl mx-auto my-20'>
                 <Elements stripe={stripePromise}>
-                    <CheckOutForm price={price} name={name} classId={classId}></CheckOutForm>
+                    <CheckOutForm price={price} name={name} classId={classId} data={data}></CheckOutForm>
                 </Elements>
             </div>
         </div>

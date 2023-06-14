@@ -26,7 +26,7 @@ const ShowAllClasses = ({ classes }) => {
     
     const handleSelect = (classes) => {
         if (user && user.email) {
-            const selectedClass = { name, image, coach, price, classId: _id, email: user.email }
+            const selectedClass = { name, image, coach, price, classId: _id, email: user.email , available_seats , enrolled_students: classes.enrolled_students }
             axiosSecure.post("/carts", selectedClass)
                 .then(data => {
                     if (data.data.insertedId) {
