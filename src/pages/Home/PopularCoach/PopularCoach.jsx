@@ -7,16 +7,17 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination } from "swiper";
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { useQuery } from 'react-query';
 
 const PopularCoach = () => {
 
-    const [coaches, setCoaches] = useState([]);
+    const [axiosSecure] = useAxiosSecure();
 
-    useEffect(() => {
-        fetch("http://localhost:5000/coaches")
-            .then(res => res.json())
-            .then(data => setCoaches(data))
-    }, [])
+    const { data: coaches = [] } = useQuery(["coaches"], async () => {
+        const res = await axiosSecure.get(`/coaches`)
+        return res.data;
+    });
     
     return (
         <div className=' bg-[#F5E1DA] pb-20'>

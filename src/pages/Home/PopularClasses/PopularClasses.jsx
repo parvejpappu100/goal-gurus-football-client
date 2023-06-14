@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { useQuery } from 'react-query';
 
 const PopularClasses = () => {
 
-    const [popularClasses, setPopularClasses] = useState([]);
+    const [axiosSecure] = useAxiosSecure();
 
-    useEffect(() => {
-        fetch("http://localhost:5000/classes")
-            .then(res => res.json())
-            .then(data => setPopularClasses(data))
-    }, [])
+    const { data: popularClasses = [] } = useQuery(["classes"], async () => {
+        const res = await axiosSecure.get(`/classes`)
+        return res.data;
+    });
 
     return (
         <div className='max-w-6xl mx-auto py-20 px-2'>

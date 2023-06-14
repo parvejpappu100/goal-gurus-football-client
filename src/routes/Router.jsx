@@ -14,6 +14,7 @@ import ManageClasses from "../pages/DashBoard/Admin/ManageClasses/ManageClasses"
 import AddClass from "../pages/DashBoard/Coach/AddClass/AddClass";
 import MyClasses from "../pages/DashBoard/Coach/MyClasses/MyClasses";
 import CoachRoute from "./CoachRoute";
+import Payment from "../pages/DashBoard/Students/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
                 element: <MyCart></MyCart>
             },
             {
+                path: "payment",
+                element: <Payment></Payment>
+            },
+            // * Admin routes:
+            {
                 path: "allUsers",
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
@@ -58,6 +64,7 @@ const router = createBrowserRouter([
                 path: 'manageClasses',
                 element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
+            // * Coach routes:
             {
                 path: "addClass",
                 element: <CoachRoute><AddClass></AddClass></CoachRoute>

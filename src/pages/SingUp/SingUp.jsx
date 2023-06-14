@@ -9,11 +9,14 @@ import useAuth from '../../hooks/useAuth';
 import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 const SingUp = () => {
 
     const { createUser } = useAuth();
+
+    const [axiosSecure] = useAxiosSecure();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -42,7 +45,6 @@ const SingUp = () => {
 
                     if (data.password === data.confirmPassword) {
                         setPassError("")
-                        console.log(data)
                         createUser(data.email, data.password)
                             .then(result => {
                                 const user = result.user;
@@ -70,16 +72,9 @@ const SingUp = () => {
             .then(() => {
                 const savedUser = { name: name, email: email , image: photoUrl , role : "student"}
 
-                fetch("http://localhost:5000/users", {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify(savedUser)
-                })
-                    .then(res => res.json())
+                axiosSecure.post("/users", savedUser)
                     .then(data => {
-                        if (data.insertedId) {
+                        if (data.data.insertedId) {
                             navigate(from, { replace: true });
                             Swal.fire({
                                 position: 'top',

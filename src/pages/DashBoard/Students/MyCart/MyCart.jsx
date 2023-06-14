@@ -4,6 +4,7 @@ import useCart from '../../../../hooks/useCart';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { Link } from 'react-router-dom';
 
 
 const MyCart = () => {
@@ -84,9 +85,11 @@ const MyCart = () => {
                                             </button>
                                         </td>
                                         <td>
-                                            <button className="btn bg-[#f3b7a1] border-none h-10 w-10 btn-xs normal-case font-bold">
-                                                Pay
-                                            </button>
+                                            <Link to="/dashboard/payment" state={{price: selectedClass.price}}>
+                                                <button className="btn bg-[#f3b7a1] border-none h-10 w-10 btn-xs normal-case font-bold">
+                                                    Pay
+                                                </button>
+                                            </Link>
                                         </td>
                                     </tr>)
                                 }

@@ -3,16 +3,17 @@ import Banner from '../../shared/Banner/Banner';
 import ShowAllClasses from '../../components/ShowAllClasses/ShowAllClasses';
 import { Helmet } from 'react-helmet-async';
 import useCart from '../../hooks/useCart';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useQuery } from 'react-query';
 
 const Classes = () => {
 
-    const [allClasses, setClasses] = useState([]);
+    const [axiosSecure] = useAxiosSecure();
 
-    useEffect(() => {
-        fetch("http://localhost:5000/classes")
-            .then(res => res.json())
-            .then(data => setClasses(data))
-    }, [])
+    const { data: allClasses = [] } = useQuery(["allClasses"], async () => {
+        const res = await axiosSecure.get(`/classes`)
+        return res.data;
+    });
 
     const [showAll, setShowAll] = useState(false);
     const handleShowAll = (event) => {

@@ -38,16 +38,9 @@ const ManageClasses = () => {
 
     const handleDeniedClass = (newClass) => {
         const updatedStatus = { status: "denied" };
-        fetch(`http://localhost:5000/classes/${newClass._id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(updatedStatus)
-        })
-            .then(res => res.json())
+        axiosSecure.put(`/classes/${newClass._id}`, updatedStatus)
             .then(data => {
-                if (data.modifiedCount > 0) {
+                if (data.data.modifiedCount > 0) {
                     refetch();
                     Swal.fire({
                         position: 'top',

@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import Banner from '../../shared/Banner/Banner';
 import ShowAllCoaches from '../../components/ShowAllCoaches/ShowAllCoaches';
 import { Helmet } from 'react-helmet-async';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useQuery } from 'react-query';
 
 const Coaches = () => {
 
-    const [coaches, setCoaches] = useState([]);
+    const [axiosSecure] = useAxiosSecure();
 
-    useEffect(() => {
-        fetch("http://localhost:5000/coaches")
-            .then(res => res.json())
-            .then(data => setCoaches(data))
-    }, [])
+    const { data: coaches = [] } = useQuery(["coaches"], async () => {
+        const res = await axiosSecure.get(`/coaches`)
+        return res.data;
+    });
 
     const [showAll, setShowAll] = useState(false);
     const handleShowAll = (event) => {

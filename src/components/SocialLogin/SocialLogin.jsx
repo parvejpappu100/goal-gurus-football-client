@@ -3,12 +3,14 @@ import { FaFacebook, FaGoogle, FaGithub } from 'react-icons/fa';
 import useAuth from '../../hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 
 const SocialLogin = () => {
 
     const { googleSingIn } = useAuth();
 
+    const [axiosSecure] = useAxiosSecure();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -18,16 +20,9 @@ const SocialLogin = () => {
             .then(result => {
                 const user = result.user;
                 const savedUser = {name : user.displayName , email: user.email , image: user.photoURL , role: "student"}
-                fetch("http://localhost:5000/users", {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify(savedUser)
-                })
-                    .then(res => res.json())
+                axiosSecure.post("/users", savedUser)
                     .then(data => {
-                        if (data.insertedId) {
+                        if (data.data.insertedId) {
                             navigate(from, { replace: true });
                             Swal.fire({
                                 position: 'top',
@@ -42,7 +37,7 @@ const SocialLogin = () => {
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.log(error.message)
+                
             })
     }
 

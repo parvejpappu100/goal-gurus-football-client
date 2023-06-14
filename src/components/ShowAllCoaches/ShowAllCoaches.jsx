@@ -5,7 +5,7 @@ const ShowAllCoaches = ({ coach }) => {
 
     return (
         <div className='mx-auto'>
-            <img className='grayscale hover:grayscale-0 transition duration-500' src={image} alt="" />
+            <img className='grayscale hover:grayscale-0 h-[330px] transition duration-500' src={image} alt="" />
             <h3 className='text-[12px] md:text-xl font-semibold mt-5'>{name}</h3>
             <p>{email}</p>
         </div>
