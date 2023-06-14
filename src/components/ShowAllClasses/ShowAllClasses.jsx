@@ -62,7 +62,7 @@ const ShowAllClasses = ({ classes }) => {
     }
 
     return (
-        <div className='p-5 border'>
+        <div className={`p-5 border ${available_seats == 0 ? "bg-red-500 text-white tooltip " : "" } `} data-tip="Not Available Yet">
             <img className='h-[400px] w-full' src={image} alt="" />
             <h3 className='text-2xl font-medium my-2'>{name}</h3>
             <h6 className='text-xl'>Coach : {coach}</h6>

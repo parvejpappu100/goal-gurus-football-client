@@ -17,11 +17,13 @@ import CoachRoute from "./CoachRoute";
 import Payment from "../pages/DashBoard/Students/Payment/Payment";
 import EnrolledClass from "../pages/DashBoard/Students/EnrolledClasses/EnrolledClass";
 import PaymentsHistory from "../pages/DashBoard/Students/PaymentsHistory/PaymentsHistory";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage> ,
         children: [
             {
                 path: "/",
@@ -48,6 +50,7 @@ const router = createBrowserRouter([
     {
         path: "/dashBoard",
         element: <PrivateRoutes><DashBoard></DashBoard></PrivateRoutes>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "myCart",
