@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import useAdmin from '../../hooks/useAdmin';
 import useCoach from '../../hooks/useCoach';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { motion } from 'framer-motion';
 
 const ShowAllClasses = ({ classes }) => {
     const { name, image, available_seats, coach, price, _id } = classes;
@@ -23,10 +24,10 @@ const ShowAllClasses = ({ classes }) => {
     const [isCoach] = useCoach();
 
     const isExits = cart.find(ct => ct.classId == _id);
-    
+
     const handleSelect = (classes) => {
         if (user && user.email) {
-            const selectedClass = { name, image, coach, price, classId: _id, email: user.email , available_seats , enrolled_students: classes.enrolled_students }
+            const selectedClass = { name, image, coach, price, classId: _id, email: user.email, available_seats, enrolled_students: classes.enrolled_students }
             axiosSecure.post("/carts", selectedClass)
                 .then(data => {
                     if (data.data.insertedId) {
@@ -62,7 +63,13 @@ const ShowAllClasses = ({ classes }) => {
     }
 
     return (
-        <div className={`p-5 border ${available_seats == 0 ? "bg-red-500 text-white tooltip " : "" } `} data-tip="Not Available Yet">
+        <motion.div className={`p-5 border ${available_seats == 0 ? "bg-red-500 text-white tooltip " : ""} `} data-tip="Not Available Yet"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 0.9 }}
+            whileTap={{ scale: 0.9 }}
+        >
             <img className='h-[400px] w-full' src={image} alt="" />
             <h3 className='text-2xl font-medium my-2'>{name}</h3>
             <h6 className='text-xl'>Coach : {coach}</h6>
@@ -82,11 +89,11 @@ const ShowAllClasses = ({ classes }) => {
                     pauseOnHover
                     theme="light"
                 />
-                {/* Same as */}
+                
                 <ToastContainer />
 
             </button>
-        </div>
+        </motion.div>
     );
 };
 

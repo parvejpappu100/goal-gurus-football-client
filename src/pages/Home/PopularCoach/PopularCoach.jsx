@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./PopularCoach.css"
+import { motion } from 'framer-motion';
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -18,7 +20,7 @@ const PopularCoach = () => {
         const res = await axiosSecure.get(`/coaches`)
         return res.data;
     });
-    
+
     return (
         <div className=' bg-[#F5E1DA] pb-20'>
             <div className='lg:container mx-auto'>
@@ -34,8 +36,16 @@ const PopularCoach = () => {
                 className="mySwiper my-20 max-w-6xl mx-auto"
             >
                 {
-                    coaches.slice(0 , 6).map(coach => <SwiperSlide key={coach._id}>
-                        <img className='grayscale hover:grayscale-0 transition duration-500' src={coach.image} alt="" />
+                    coaches.slice(0, 6).map(coach => <SwiperSlide key={coach._id}>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5 }}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
+                            <img className='grayscale hover:grayscale-0 transition duration-500' src={coach.image} alt="" />
+                        </motion.div>
                         <h3 className='text-[12px] md:text-xl font-semibold mt-5'>{coach.name}</h3>
                     </SwiperSlide>)
                 }

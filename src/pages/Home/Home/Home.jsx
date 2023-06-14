@@ -9,6 +9,7 @@ import { Helmet } from 'react-helmet-async';
 import Slider from '../Slider/Slider';
 import "./Home.css"
 
+
 const Home = () => {
 
     const [theme, setTheme] = useState("light");

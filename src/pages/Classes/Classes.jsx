@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Banner from '../../shared/Banner/Banner';
 import ShowAllClasses from '../../components/ShowAllClasses/ShowAllClasses';
 import { Helmet } from 'react-helmet-async';
-import useCart from '../../hooks/useCart';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from 'react-query';
+import { motion, AnimatePresence } from 'framer-motion';
+
 
 const Classes = () => {
 
@@ -45,7 +46,13 @@ const Classes = () => {
                 <div className='text-center my-8'>
                     {
                         !showAll && (
-                            <button onClick={handleShowAll} className=' hover:bg-[#173931] hover:text-white duration-500 border border-black py-2 px-7 uppercase rounded-3xl'>View All</button>
+                            <motion.button onClick={handleShowAll} className=' hover:bg-[#173931] hover:text-white duration-500 border border-black py-2 px-7 uppercase rounded-3xl'
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 1 }}
+                            >View All</motion.button>
                         )
                     }
                 </div>

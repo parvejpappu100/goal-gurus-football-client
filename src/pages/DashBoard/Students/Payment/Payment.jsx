@@ -18,7 +18,6 @@ const Payment = () => {
     const price = parseFloat(priceString); 
     const name = data.name;
     const classId = data.classId;
-    console.log(data);
 
     return (
         <div className='md:container mx-auto my-20'>

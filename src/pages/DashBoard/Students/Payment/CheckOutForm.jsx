@@ -12,7 +12,6 @@ const CheckOutForm = ({ price, name, classId , data }) => {
     const {available_seat , enrolled_seat , _id} = data;
     const available_seatInt = parseInt(available_seat);
     const enrolled_seatInt = parseInt(enrolled_seat);
-    console.log(available_seatInt , enrolled_seatInt , _id);
 
     const stripe = useStripe();
     const [axiosSecure] = useAxiosSecure();
@@ -30,7 +29,6 @@ const CheckOutForm = ({ price, name, classId , data }) => {
         if (price > 0) {
             axiosSecure.post("/create-payment-intent", { price })
                 .then(res => {
-                    console.log(res.data.clientSecret)
                     setClientSecret(res.data.clientSecret)
                 })
         }
@@ -47,18 +45,15 @@ const CheckOutForm = ({ price, name, classId , data }) => {
         if (card === null) {
             return;
         }
-        console.log(card)
 
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: "card",
             card
         })
         if (error) {
-            console.log("error", error);
             setCardError(error.message)
         }
         else {
-            console.log("payment method", paymentMethod);
             setCardError("");
         }
 
@@ -78,10 +73,8 @@ const CheckOutForm = ({ price, name, classId , data }) => {
         )
 
         if (confirmError) {
-            console.log(confirmError.message)
             setCardError(confirmError.message)
         }
-        console.log(paymentIntent)
 
         setProcessing(false);
         if (paymentIntent.status === "succeeded") {
@@ -101,12 +94,6 @@ const CheckOutForm = ({ price, name, classId , data }) => {
                 .then(res => {
                     if (res.data.insertResult.insertedId && res.data.deletedResult.deletedCount) {
                         refetch();
-                        // const updatedSeat = {enrolled_students : enrolled_seatInt + 1 , available_seats: available_seatInt - 1}
-                        // axiosSecure.put(`/classes/seat/${_id}` , updatedSeat)
-                        // .then(res => {
-                        //     console.log(res.data)
-                        // })
-
                         Swal.fire({
                             position: 'top',
                             icon: 'success',
