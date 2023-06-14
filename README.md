@@ -8,12 +8,12 @@
 * There is an admin available who can assign any user as a coach or admin for managing users and classes if desired.
 * In addition to that, the coaches can add their managed classes here, which can be later approved by an admin to be displayed on the website.
 * A payment system has been implemented here, allowing anyone, except for coaches and admins, to purchase courses.
-* All the features available here are being utilized: 
-            ** Course enrolled system
-            ** Payment system
-            ** Admin system 
-            ** Manage users
-            ** Manage classes(approved , denied , pending)
-            ** Add class (only coach can add a class)
-            ** Delete and update classes
-            ** Many things also
+1. All the features available here are being utilized: 
+2. Course enrolled system
+3. Payment system
+4. Admin system 
+5. Manage users
+6. Manage classes(approved , denied , pending)
+7. Add class (only coach can add a class)
+8. Delete and update classes
+9. Many things also1.
