@@ -5,7 +5,7 @@ import axios from 'axios';
 import { config } from 'localforage';
 
 const axiosSecure = axios.create({
-    baseURL: "http://localhost:5000"
+    baseURL: "https://goal-gurus-server-side.vercel.app"
 });
 
 const useAxiosSecure = () => {
