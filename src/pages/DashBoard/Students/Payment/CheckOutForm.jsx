@@ -3,27 +3,32 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { Helmet } from 'react-helmet-async';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import useAuth from '../../../../hooks/useAuth';
+import Swal from 'sweetalert2';
+import useCart from '../../../../hooks/useCart';
 
 
-const CheckOutForm = ({ price }) => {
+const CheckOutForm = ({ price, name, classId }) => {
 
     const stripe = useStripe();
     const [axiosSecure] = useAxiosSecure();
-    const {user} = useAuth();
+    const { user } = useAuth();
+    const [,refetch] = useCart();
 
     const elements = useElements();
     const [cardError, setCardError] = useState("");
     const [clientSecret, setClientSecret] = useState("");
-    const [processing , setProcessing] = useState(false);
-    const [transactionId , setTransactionId] = useState("");
+    const [processing, setProcessing] = useState(false);
+    const [transactionId, setTransactionId] = useState("");
 
     useEffect(() => {
-        axiosSecure.post("/create-payment-intent", { price })
-            .then(res => {
-                console.log(res.data.clientSecret)
-                setClientSecret(res.data.clientSecret)
-            })
-    }, [price , axiosSecure])
+        if (price > 0) {
+            axiosSecure.post("/create-payment-intent", { price })
+                .then(res => {
+                    console.log(res.data.clientSecret)
+                    setClientSecret(res.data.clientSecret)
+                })
+        }
+    }, [price, axiosSecure])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -66,16 +71,40 @@ const CheckOutForm = ({ price }) => {
             },
         )
 
-        if(confirmError){
+        if (confirmError) {
             console.log(confirmError.message)
             setCardError(confirmError.message)
         }
         console.log(paymentIntent)
 
         setProcessing(false);
-        if(paymentIntent.status === "succeeded"){
+        if (paymentIntent.status === "succeeded") {
             const transactionId = paymentIntent.id;
             setTransactionId(transactionId);
+
+            const payment = {
+                email: user?.email,
+                transactionId,
+                price,
+                name,
+                date: new Date(),
+                classId
+            }
+
+            axiosSecure.post("/payments", payment)
+                .then(res => {
+                    if (res.data.insertResult.insertedId && res.data.deletedResult.deletedCount) {
+                        refetch();
+                        Swal.fire({
+                            position: 'top',
+                            icon: 'success',
+                            title: 'Payment successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
+
         }
 
 

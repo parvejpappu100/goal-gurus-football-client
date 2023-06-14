@@ -15,8 +15,9 @@ const Payment = () => {
     const location = useLocation();
     const data = location.state;
     const priceString = data.price;
-    const priceToFixed = priceString.toFixed(2);
-    const price = parseFloat(priceToFixed); 
+    const price = parseFloat(priceString); 
+    const name = data.name;
+    const classId = data.classId;
 
     return (
         <div className='md:container mx-auto my-20'>
@@ -26,7 +27,7 @@ const Payment = () => {
             <h4 className='text-3xl text-center font-family'>Pay Now</h4>
             <div className='max-w-3xl mx-auto my-20'>
                 <Elements stripe={stripePromise}>
-                    <CheckOutForm price={price}></CheckOutForm>
+                    <CheckOutForm price={price} name={name} classId={classId}></CheckOutForm>
                 </Elements>
             </div>
         </div>
