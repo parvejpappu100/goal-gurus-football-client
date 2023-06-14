@@ -8,15 +8,15 @@ import useCart from '../../../../hooks/useCart';
 import { useNavigate } from 'react-router-dom';
 
 
-const CheckOutForm = ({ price, name, classId , data }) => {
-    const {available_seat , enrolled_seat , _id} = data;
+const CheckOutForm = ({ price, name, classId, data }) => {
+    const { available_seat, enrolled_seat, _id } = data;
     const available_seatInt = parseInt(available_seat);
     const enrolled_seatInt = parseInt(enrolled_seat);
 
     const stripe = useStripe();
     const [axiosSecure] = useAxiosSecure();
     const { user } = useAuth();
-    const [,refetch] = useCart();
+    const [, refetch] = useCart();
 
     const elements = useElements();
     const [cardError, setCardError] = useState("");
@@ -112,30 +112,46 @@ const CheckOutForm = ({ price, name, classId , data }) => {
             <Helmet>
                 <title>CheckOut | Dashboard</title>
             </Helmet>
-            <div>
+            <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+                <h2 className="text-2xl font-bold mb-6">Checkout</h2>
                 <form onSubmit={handleSubmit}>
-                    <CardElement
-                        options={{
-                            style: {
-                                base: {
-                                    fontSize: '16px',
-                                    color: '#424770',
-                                    '::placeholder': {
-                                        color: '#aab7c4',
+                    <div className="mb-6">
+                        <label htmlFor="card-details" className="block text-gray-700 mb-2">
+                            Card Details
+                        </label>
+                        <div id="card-details" className="p-3 border border-gray-300 rounded">
+                            <CardElement
+                                options={{
+                                    style: {
+                                        base: {
+                                            fontSize: '16px',
+                                            color: '#424770',
+                                            '::placeholder': {
+                                                color: '#aab7c4',
+                                            },
+                                        },
+                                        invalid: {
+                                            color: '#9e2146',
+                                        },
                                     },
-                                },
-                                invalid: {
-                                    color: '#9e2146',
-                                },
-                            },
-                        }}
-                    />
-                    <button className='btn bg-white my-5 shadow-md text-xl hover:bg-[#F5E1DA] normal-case' type="submit" disabled={!stripe || !clientSecret || processing}>
-                        Pay
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <button
+                        className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded disabled:bg-gray-400 disabled:cursor-not-allowed"
+                        type="submit"
+                        disabled={!stripe || !clientSecret || processing}
+                    >
+                        {processing ? 'Processing...' : 'Pay'}
                     </button>
                 </form>
-                {cardError && <p className='text-red-500 font-semibold '>{cardError}</p>}
-                {transactionId && <p className='text-green-500 font-semibold'>Transaction complete with transactionId : {transactionId}</p>}
+                {cardError && <p className="text-red-500 font-semibold mt-4">{cardError}</p>}
+                {transactionId && (
+                    <p className="text-green-500 font-semibold mt-4">
+                        Transaction complete with transactionId: {transactionId}
+                    </p>
+                )}
             </div>
         </div>
     );
