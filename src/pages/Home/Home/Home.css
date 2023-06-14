@@ -1,8 +1,29 @@
-.light{
+/* Light Theme */
+.light {
     background-color: #FFFFFF;
     color: #000000;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-.dark{
+  
+.light:hover {
+    background-color: #F5F5F5;
+}
+
+.light.active {
+    background-color: #EEEEEE;
+}
+  
+  /* Dark Theme */
+.dark {
     background-color: #333333;
     color: #FFFFFF;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+  
+.dark:hover {
+    background-color: #444444;
+}
+  
+.dark.active {
+    background-color: #555555;
+}  

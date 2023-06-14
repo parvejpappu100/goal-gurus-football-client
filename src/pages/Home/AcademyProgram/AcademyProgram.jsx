@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaArrowCircleRight } from 'react-icons/fa';
 
-const AcademyProgram = () => {
+const AcademyProgram = ({theme}) => {
     return (
-        <div className='bg-[#D6DEDC]'>
+        <div className={theme === "light" ? "bg-[#D6DEDC]" : "dark"}>
             <div className='lg:container mx-auto py-20'>
                 <h3 className='flex justify-center my-5 text-4xl px-1'>Find Your Game With The <br /> GoalGurus Football Academy</h3>
                 <div className=' flex flex-col items-start'>

@@ -28,7 +28,7 @@ const Home = () => {
             </div>
             <About></About>
             <CoachSay></CoachSay>
-            <AcademyProgram></AcademyProgram>
+            <AcademyProgram theme={theme}></AcademyProgram>
             <AcademyGallery></AcademyGallery>
             <PopularCoach></PopularCoach>
             <PopularClasses></PopularClasses>
